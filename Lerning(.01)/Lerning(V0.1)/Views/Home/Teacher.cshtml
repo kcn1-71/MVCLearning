@@ -25,12 +25,13 @@
             </div>
         }
     </div>
-    <form class="teacher_form">
+    <form class="teacher_form" action="/Home/Teacher" method="post">
 
         <input type="hidden" value="@ViewBag.TaskId" name="TaskId" />
         <input type="text" name="text" />
         <input type="submit" value="Отправить"> 
 
-    </form>
+    </form> 
+
 </body>
 </html>

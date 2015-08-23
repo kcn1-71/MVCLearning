@@ -54,6 +54,7 @@ namespace Lerning_V0._1_.Controllers
         [HttpPost]
         public ActionResult Teacher(Task task)
         {
+
             task.Date = DateTime.Now;
             db.TaskList.Add(task);
             db.SaveChanges();
