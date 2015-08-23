@@ -28,18 +28,27 @@ namespace Lerning_V0._1_.Controllers
             return View();
         }
 
+
+
         // создаем контекст данных
         TaskContext db = new TaskContext();
+        
+        public ActionResult Student()
+        {
+            IEnumerable<Task> tasks = db.TaskList;
+            ViewBag.TaskList = tasks;
+            return View();
+        }
 
         public ActionResult Teacher()
         {
-            // получаем из бд все объекты Book
+            // получаем из бд все объекты 
             IEnumerable<Task> tasks = db.TaskList;
-            // передаем все объекты в динамическое свойство Books в ViewBag
+            // передаем все объекты в динамическое свойство ViewBag
             ViewBag.TaskList = tasks;
             // возвращаем представление
             return View();
-            
+
         }
 
         [HttpPost]
@@ -51,17 +60,9 @@ namespace Lerning_V0._1_.Controllers
             return RedirectToAction("Teacher");
         }
 
-        
-        public ActionResult Student()
-        {
-            // получаем из бд все объекты Book
-            IEnumerable<Task> tasks = db.TaskList;
-            // передаем все объекты в динамическое свойство Books в ViewBag
-            ViewBag.TaskList = tasks;
-            // возвращаем представление
-            return View();
-        }
 
-       
+        
+
+
     }
 }
