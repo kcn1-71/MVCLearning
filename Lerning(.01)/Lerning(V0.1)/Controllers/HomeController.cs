@@ -32,7 +32,7 @@ namespace Lerning_V0._1_.Controllers
 
         // создаем контекст данных
         TaskContext db = new TaskContext();
-        
+
         public ActionResult Student()
         {
             IEnumerable<Task> tasks = db.TaskList;
@@ -60,10 +60,6 @@ namespace Lerning_V0._1_.Controllers
             db.SaveChanges();
             return RedirectToAction("Teacher");
         }
-
-
-        
-
 
     }
 }
