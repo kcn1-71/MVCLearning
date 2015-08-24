@@ -16,20 +16,20 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HomeworkText)
+            @Html.DisplayFor(model => model.Text)
         </dd>
 
         <dt>
-            Дата и время создания
+            Дата создания
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.HomeworkDateTime)
+            @Html.DisplayFor(model => model.Date)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Изменить", "Edit", new { id = Model.HomeworkId }) |
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("На главную", "Index")
 </p>

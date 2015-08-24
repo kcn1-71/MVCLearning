@@ -8,6 +8,6 @@ namespace PhotoSchool.Models
 {
     public class HomeworkContext : DbContext
     {
-        public DbSet<Homework> HomeworkList { get; set; }
+        public DbSet<Homework> Homeworks { get; set; }
     }
 }
