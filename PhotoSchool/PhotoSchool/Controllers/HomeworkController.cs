@@ -50,6 +50,7 @@ namespace PhotoSchool.Controllers
         {
             if (ModelState.IsValid)
             {
+                homework.HomeworkDateTime = DateTime.Now;
                 db.HomeworkList.Add(homework);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +83,7 @@ namespace PhotoSchool.Controllers
         {
             if (ModelState.IsValid)
             {
+                homework.HomeworkDateTime = DateTime.Now;
                 db.Entry(homework).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
