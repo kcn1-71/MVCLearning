@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PhotoSchool.Models.Homework>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Домашние задания</h2>
+
+<p>
+    @Html.ActionLink("Создать новое", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Текст задания
+            </th>
+            <th>
+                Дата и время создания
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="parent_div">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomeworkText)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomeworkDateTime)
+                </td>
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.HomeworkId }) |
+                    @Html.ActionLink("Просмотр", "Details", new { id = item.HomeworkId }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.HomeworkId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

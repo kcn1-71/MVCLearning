@@ -1,0 +1,41 @@
+﻿@model PhotoSchool.Models.Homework
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удалить</h2>
+
+<h3>Уверены что хотите удалить?</h3>
+<div>
+    <h4>Домашняя работа</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Текст задания
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeworkText)
+        </dd>
+
+        <dt>
+            Дата и время создания
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeworkDateTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("На главную", "Index")
+        </div>
+    }
+</div>
