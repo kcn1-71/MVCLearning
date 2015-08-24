@@ -17,7 +17,7 @@ namespace PhotoSchool.Controllers
         // GET: Homework
         public ActionResult Index()
         {
-            return View(db.HomeworkList.ToList());
+            return View(db.Homeworks.ToList());
         }
 
         // GET: Homework/Details/5
@@ -27,7 +27,7 @@ namespace PhotoSchool.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Homework homework = db.HomeworkList.Find(id);
+            Homework homework = db.Homeworks.Find(id);
             if (homework == null)
             {
                 return HttpNotFound();
@@ -46,12 +46,11 @@ namespace PhotoSchool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "HomeworkId,HomeworkText,HomeworkDateTime")] Homework homework)
+        public ActionResult Create([Bind(Include = "Id,Text,Date")] Homework homework)
         {
             if (ModelState.IsValid)
             {
-                homework.HomeworkDateTime = DateTime.Now;
-                db.HomeworkList.Add(homework);
+                db.Homeworks.Add(homework);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +65,7 @@ namespace PhotoSchool.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Homework homework = db.HomeworkList.Find(id);
+            Homework homework = db.Homeworks.Find(id);
             if (homework == null)
             {
                 return HttpNotFound();
@@ -79,11 +78,11 @@ namespace PhotoSchool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "HomeworkId,HomeworkText,HomeworkDateTime")] Homework homework)
+        public ActionResult Edit([Bind(Include = "Id,Text,Date")] Homework homework)
         {
             if (ModelState.IsValid)
             {
-                homework.HomeworkDateTime = DateTime.Now;
+                //homework.Date = DateTime.Now;
                 db.Entry(homework).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -98,7 +97,7 @@ namespace PhotoSchool.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Homework homework = db.HomeworkList.Find(id);
+            Homework homework = db.Homeworks.Find(id);
             if (homework == null)
             {
                 return HttpNotFound();
@@ -111,8 +110,8 @@ namespace PhotoSchool.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Homework homework = db.HomeworkList.Find(id);
-            db.HomeworkList.Remove(homework);
+            Homework homework = db.Homeworks.Find(id);
+            db.Homeworks.Remove(homework);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
