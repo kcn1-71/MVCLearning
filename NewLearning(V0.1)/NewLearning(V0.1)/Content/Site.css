@@ -22,3 +22,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.parent_div{
+transform: rotate(180deg);
+}
+
+.child_div {
+  transform: rotate(180deg);
+}
+  

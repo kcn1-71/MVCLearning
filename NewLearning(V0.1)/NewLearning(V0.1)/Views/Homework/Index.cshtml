@@ -11,6 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.HomeworkText)
@@ -20,9 +21,10 @@
         </th>
         <th></th>
     </tr>
-
+    </thead>
+    <tbody class="parent_div">
 @foreach (var item in Model) {
-    <tr>
+    <tr class="child_div">
         <td>
             @Html.DisplayFor(modelItem => item.HomeworkText)
         </td>
@@ -36,5 +38,5 @@
         </td>
     </tr>
 }
-
+        </tbody>
 </table>
