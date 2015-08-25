@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PhotoSchool.Models;
+using System.IO;
 
 namespace PhotoSchool.Controllers
 {
@@ -46,10 +47,21 @@ namespace PhotoSchool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Text,Date")] Homework homework)
+        public ActionResult Create([Bind(Include = "Id,Text,Date")] Homework homework, IEnumerable<HttpPostedFileBase> fileUpload)
         {
             if (ModelState.IsValid)
             {
+
+                // Сохраняем файл в папку----------------------------------------------------
+                foreach (var file in fileUpload)
+                {
+                    if (file == null) continue;
+                    string path = AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
+                    string filename = Path.GetFileName(file.FileName);
+                    if (filename != null) file.SaveAs(Path.Combine(path, filename));
+                }
+                // --------------------------------------------------------------------------
+
                 homework.Date = DateTime.Now;
                 db.Homeworks.Add(homework);
                 db.SaveChanges();
@@ -83,7 +95,7 @@ namespace PhotoSchool.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+
                 db.Entry(homework).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
