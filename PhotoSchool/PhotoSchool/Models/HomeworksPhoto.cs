@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,8 +11,10 @@ namespace PhotoSchool.Models
     {
         [Key]
         public int HomeworksPhotoId { get; set; }
+        
+        public int HomeworkId { get; set; }
+        public Homework Homework { get; set; }
 
-        public int HomeworksId { get; set; }
         public string Name { get; set; }
         public string HomeworksPhotoPath { get; set; }
     }

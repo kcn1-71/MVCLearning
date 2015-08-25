@@ -15,5 +15,7 @@ namespace PhotoSchool.Models
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Date { get; set; }
+
+        public virtual ICollection<HomeworksPhoto> Photos { get; set; }
     }
 }

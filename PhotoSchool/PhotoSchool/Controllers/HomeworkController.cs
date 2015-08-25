@@ -51,26 +51,33 @@ namespace PhotoSchool.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Сначала важно вставить запись самого задания, только потом фото, т.к. оно ссылается на задание
+                homework.Date = DateTime.Now;
+                db.Homeworks.Add(homework);
 
                 // Сохраняем файл в папку----------------------------------------------------
                 foreach (var file in fileUpload)
                 {
                     if (file == null) continue;
-                    string path = AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
-                    string filename = Path.GetFileName(file.FileName);
+                    var path = AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    
+                    var filename = Path.GetFileName(file.FileName);
                     if (filename != null) file.SaveAs(Path.Combine(path, filename));
 
-                    HomeworksPhoto NewPhoto = new HomeworksPhoto();
-                    NewPhoto.Name = file.FileName;
-                    NewPhoto.HomeworksPhotoPath = Path.Combine(path, filename);
-                    NewPhoto.HomeworksId = homework.Id;
-                    db.HomeworksPhotoList.Add(NewPhoto);
-                    db.SaveChanges();
+                    var newPhoto = new HomeworksPhoto
+                    {
+                        Name = file.FileName,
+                        HomeworksPhotoPath = "/UploadedFiles/" + filename,   // Нам не нужен путь на диске! Только относительный путь на сайте
+                        HomeworkId = homework.Id
+                    };
+                    db.HomeworksPhotoList.Add(newPhoto);
                 }
                 // --------------------------------------------------------------------------
-
-                homework.Date = DateTime.Now;
-                db.Homeworks.Add(homework);
+ 
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
