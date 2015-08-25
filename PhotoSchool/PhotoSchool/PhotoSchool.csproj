@@ -178,7 +178,6 @@
     <Compile Include="Models\Homework.cs" />
     <Compile Include="Models\HomeworkContext.cs" />
     <Compile Include="Models\HomeworksPhoto.cs" />
-    <Compile Include="Models\HomeworksPhotoContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -59,6 +59,13 @@ namespace PhotoSchool.Controllers
                     string path = AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
                     string filename = Path.GetFileName(file.FileName);
                     if (filename != null) file.SaveAs(Path.Combine(path, filename));
+
+                    HomeworksPhoto NewPhoto = new HomeworksPhoto();
+                    NewPhoto.Name = file.FileName;
+                    NewPhoto.HomeworksPhotoPath = Path.Combine(path, filename);
+                    NewPhoto.HomeworksId = homework.Id;
+                    db.HomeworksPhotoList.Add(NewPhoto);
+                    db.SaveChanges();
                 }
                 // --------------------------------------------------------------------------
 
