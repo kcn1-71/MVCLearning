@@ -36,7 +36,7 @@ namespace PhotoSchool.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.Photos = homework.Photos;                     
+            ViewBag.Photos = homework.Photos;
             return View(homework);
         }
 
@@ -110,10 +110,22 @@ namespace PhotoSchool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Text,Date")] Homework homework)
+        public ActionResult Edit([Bind(Include = "Id,Text,Date")] Homework homework, string[] DeleteCheckBox)
         {
             if (ModelState.IsValid)
             {
+                if (DeleteCheckBox != null && DeleteCheckBox.Length > 0)
+                {
+                    foreach (string DelPhoto in DeleteCheckBox)
+                    {
+                        HomeworksPhoto photo = db.HomeworksPhotoList.Find(Convert.ToInt32(DelPhoto));
+                        if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + photo.HomeworksPhotoPath))
+                        {
+                            System.IO.File.Delete(AppDomain.CurrentDomain.BaseDirectory + photo.HomeworksPhotoPath);
+                        }
+                        db.HomeworksPhotoList.Remove(photo);
+                    }
+                }
 
                 db.Entry(homework).State = EntityState.Modified;
                 db.SaveChanges();

@@ -8,7 +8,7 @@
 <h2>Изменить</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Homework", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -46,7 +46,8 @@
 
                 </div>
 
-                <input id="DeleteCheckBox[@photo.HomeworksPhotoId]" name="@photo.HomeworksPhotoId" type="checkbox">
+                <input id="DeleteCheckBox[@photo.HomeworksPhotoId]" value="@photo.HomeworksPhotoId" name="DeleteCheckBox" type="checkbox">
+                <input type="hidden" value="false" name="@photo.HomeworksPhotoId">
                 <label for="DeleteCheckBox[@photo.HomeworksPhotoId]">Удалить</label>
 
             </div>
