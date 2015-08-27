@@ -37,7 +37,7 @@
             </div>
 
             <div class="col-md-12">
-                @Html.TextBox("fileUpload[2]", "fileUpload", htmlAttributes: new { type = "file", @class = "input-file" })
+                @Html.TextBox("fileUpload[2]", "fileUpload", htmlAttributes: new { type = "file", multiple = "true", min = "1", max = "10", @class = "input-file" })
             </div>
         </div>     
         

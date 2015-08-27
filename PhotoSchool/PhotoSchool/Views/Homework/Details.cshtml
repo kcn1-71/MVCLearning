@@ -19,6 +19,8 @@
             @Html.DisplayFor(model => model.Text)
         </dd>
 
+        
+
         <dt>
             Дата создания
         </dt>
@@ -28,6 +30,20 @@
         </dd>
 
     </dl>
+
+    @foreach (var photo in ViewBag.Photos)
+    {
+        <div class="col">
+            <div class="photo_preview">
+
+                <a href="@photo.HomeworksPhotoPath" target="_blank">
+                    <img src="@Url.Content(photo.HomeworksPhotoPath)" alt="Image">
+                </a>
+
+            </div>
+        </div>
+    }
+
 </div>
 <p>
     @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |

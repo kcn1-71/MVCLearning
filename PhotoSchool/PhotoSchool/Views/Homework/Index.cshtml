@@ -26,14 +26,23 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Text)
-                
-                <br/>
+
+                <br />
 
                 @foreach (var photo in item.Photos)
                 {
-                    <img src="@Url.Content(photo.HomeworksPhotoPath)" alt="Image" />
+                    <div class="col">
+                        <div class="photo_preview">
+
+                            <a href="@photo.HomeworksPhotoPath" target="_blank">
+                                <img src="@Url.Content(photo.HomeworksPhotoPath)" alt="Image">
+                            </a>
+
+                        </div>
+                    </div>
                 }
-            </td>
+
+</td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>

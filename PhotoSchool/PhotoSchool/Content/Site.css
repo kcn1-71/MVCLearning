@@ -23,13 +23,32 @@ textarea {
     max-width: 280px;
 }
 
-.parent_div{
-transform: rotate(180deg);
+.parent_div {
+    transform: rotate(180deg);
 }
 
 .child_div {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
+
 .photo-label {
     float: none;
 }
+
+.photo_preview {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    overflow: hidden;
+    background : black;
+       
+}
+
+    .photo_preview img {
+        height: 100%;
+    }
+.col {
+    margin : 5px;
+    display: inline-block
+}
+    

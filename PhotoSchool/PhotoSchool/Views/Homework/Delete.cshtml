@@ -30,6 +30,19 @@
 
     </dl>
 
+    @foreach (var photo in ViewBag.Photos)
+    {
+        <div class="col">
+            <div class="photo_preview">
+
+                <a href="@photo.HomeworksPhotoPath" target="_blank">
+                    <img src="@Url.Content(photo.HomeworksPhotoPath)" alt="Image">
+                </a>
+
+            </div>
+        </div>
+    }
+
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 

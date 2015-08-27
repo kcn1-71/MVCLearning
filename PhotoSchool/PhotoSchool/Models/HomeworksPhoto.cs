@@ -11,7 +11,7 @@ namespace PhotoSchool.Models
     {
         [Key]
         public int HomeworksPhotoId { get; set; }
-        
+
         public int HomeworkId { get; set; }
         public Homework Homework { get; set; }
 

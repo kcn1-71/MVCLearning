@@ -28,11 +28,15 @@ namespace PhotoSchool.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Homework homework = db.Homeworks.Find(id);
+
             if (homework == null)
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Photos = homework.Photos;                     
             return View(homework);
         }
 
@@ -64,7 +68,7 @@ namespace PhotoSchool.Controllers
                     {
                         Directory.CreateDirectory(path);
                     }
-                    
+
                     var filename = Path.GetFileName(file.FileName);
                     if (filename != null) file.SaveAs(Path.Combine(path, filename));
 
@@ -77,7 +81,7 @@ namespace PhotoSchool.Controllers
                     db.HomeworksPhotoList.Add(newPhoto);
                 }
                 // --------------------------------------------------------------------------
- 
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -97,6 +101,7 @@ namespace PhotoSchool.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Photos = homework.Photos;
             return View(homework);
         }
 
@@ -129,6 +134,7 @@ namespace PhotoSchool.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Photos = homework.Photos;
             return View(homework);
         }
 
@@ -138,6 +144,14 @@ namespace PhotoSchool.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Homework homework = db.Homeworks.Find(id);
+
+            foreach (var photo in homework.Photos)
+            {
+                if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + photo.HomeworksPhotoPath))
+                {
+                    System.IO.File.Delete(AppDomain.CurrentDomain.BaseDirectory + photo.HomeworksPhotoPath);
+                }
+            }
             db.Homeworks.Remove(homework);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -11,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Домашнее задание</h4>
         <hr />
@@ -33,6 +33,24 @@
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
+
+
+        @foreach (var photo in ViewBag.Photos)
+                {
+            <div class="col">
+                <div class="photo_preview">
+
+                    <a href="@photo.HomeworksPhotoPath" target="_blank">
+                        <img src="@Url.Content(photo.HomeworksPhotoPath)" alt="Image">
+                    </a>
+
+                </div>
+
+                <input id="DeleteCheckBox[@photo.HomeworksPhotoId]" name="@photo.HomeworksPhotoId" type="checkbox">
+                <label for="DeleteCheckBox[@photo.HomeworksPhotoId]">Удалить</label>
+
+            </div>
+        }
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
