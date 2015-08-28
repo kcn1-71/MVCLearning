@@ -54,6 +54,11 @@
         }
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Text, "Прикрепить фото", htmlAttributes: new { @class = "control-label col-md-2 photo-label" })
+            @Html.TextBox("fileUpload", "fileUpload", htmlAttributes: new { type = "file", multiple = "multiple", @class = "input-file" })
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Сохранить" class="btn btn-default" />
             </div>

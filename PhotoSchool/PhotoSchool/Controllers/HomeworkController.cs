@@ -51,7 +51,7 @@ namespace PhotoSchool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Text,Date")] Homework homework, IEnumerable<HttpPostedFileBase> fileUpload)
+        public ActionResult Create([Bind(Include = "Id,Text,Date")] Homework homework, HttpPostedFileBase[] fileUpload)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace PhotoSchool.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Text,Date")] Homework homework, string[] DeleteCheckBox)
+        public ActionResult Edit([Bind(Include = "Id,Text,Date")] Homework homework, string[] DeleteCheckBox, HttpPostedFileBase[] fileUpload)
         {
             if (ModelState.IsValid)
             {
@@ -126,6 +126,29 @@ namespace PhotoSchool.Controllers
                         db.HomeworksPhotoList.Remove(photo);
                     }
                 }
+                // Сохраняем файл в папку----------------------------------------------------
+                foreach (var file in fileUpload)
+                {
+                    if (file == null) continue;
+                    var path = AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    var filename = Path.GetFileName(file.FileName);
+                    if (filename != null) file.SaveAs(Path.Combine(path, filename));
+
+                    var newPhoto = new HomeworksPhoto
+                    {
+                        Name = file.FileName,
+                        HomeworksPhotoPath = "/UploadedFiles/" + filename,   // Нам не нужен путь на диске! Только относительный путь на сайте
+                        HomeworkId = homework.Id
+                    };
+                    db.HomeworksPhotoList.Add(newPhoto);
+                }
+                // --------------------------------------------------------------------------
+
 
                 db.Entry(homework).State = EntityState.Modified;
                 db.SaveChanges();
