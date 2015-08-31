@@ -29,21 +29,25 @@
         </dd>
 
     </dl>
+    <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+            @foreach (var photo in ViewBag.Photos)
+            {
+                <div class="col">
+                    <div class="photo_preview">
 
-    @foreach (var photo in ViewBag.Photos)
-    {
-        <div class="col">
-            <div class="photo_preview">
+                        <a href="@photo.HomeworksPhotoPath" target="_blank">
+                            <img src="@Url.Content(photo.HomeworksPhotoPath)" alt="Image">
+                        </a>
 
-                <a href="@photo.HomeworksPhotoPath" target="_blank">
-                    <img src="@Url.Content(photo.HomeworksPhotoPath)" alt="Image">
-                </a>
-
-            </div>
+                    </div>
+                </div>
+            }
         </div>
-    }
+    </div>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+            {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

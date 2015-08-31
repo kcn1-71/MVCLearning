@@ -17,11 +17,7 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+
 
 .parent_div {
     transform: rotate(180deg);
@@ -52,4 +48,11 @@ textarea {
     margin : 5px;
     display: inline-block
 }
-    
+  
+.textarea {
+    width: 500px;
+    max-width:500px;
+    height: 200px;
+    max-height:200px;
+    text-align: left;
+}  

@@ -20,14 +20,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Text, "Текст задания", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextArea("Text", "", htmlAttributes: new { type = "text", @class = "textarea" })
                 @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        
         <div class="form-group">
-            @Html.LabelFor(model => model.Text, "Прикрепить фото", htmlAttributes: new { @class = "control-label col-md-2 photo-label" })
-            @Html.TextBox("fileUpload", "fileUpload", htmlAttributes: new { type = "file", multiple = "multiple", @class = "input-file" })
+            @Html.LabelFor(model => model.Text, "Прикрепить фото", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("fileUpload", "fileUpload", htmlAttributes: new { type = "file", multiple = "multiple", @class = "input-file" })
+            </div>
         </div>
 
         <div class="form-group">
