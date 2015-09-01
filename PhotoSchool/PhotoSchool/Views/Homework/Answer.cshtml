@@ -1,0 +1,84 @@
+﻿@model PhotoSchool.Models.Homework
+
+@{
+    ViewBag.Title = "Homework";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ответ</h2>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Text, "Текст задания", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DisplayFor(model => model.Text)
+    </div>
+</div>
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(model => model.Date, "Дата создания", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Date)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+            @foreach (var photo in ViewBag.Photos)
+            {
+                <div class="col">
+                    <div class="photo_preview">
+
+                        <a href="@photo.HomeworksPhotoPath" target="_blank">
+                            <img src="@Url.Content(photo.HomeworksPhotoPath)" alt="Image">
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("Answer", "Homework", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Домашнее задание</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, "Текст ответа", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextArea("Answer", "", htmlAttributes: new { type = "text", @class = "textarea" })
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, "Прикрепить фото", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("fileUpload", "fileUpload", htmlAttributes: new { type = "file", multiple = "multiple", @class = "input-file" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Создать" class="btn btn-default" />
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("На главную", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

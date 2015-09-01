@@ -243,6 +243,7 @@
     <Content Include="Views\Homework\Details.cshtml" />
     <Content Include="Views\Homework\Edit.cshtml" />
     <Content Include="Views\Homework\Index.cshtml" />
+    <Content Include="Views\Homework\Answer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
