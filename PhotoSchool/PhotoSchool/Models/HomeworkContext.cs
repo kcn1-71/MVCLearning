@@ -10,5 +10,8 @@ namespace PhotoSchool.Models
     {
         public DbSet<Homework> Homeworks { get; set; }
         public DbSet<HomeworksPhoto> HomeworksPhotoList { get; set; }
+
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<AnswersPhoto> AnswersPhotoList { get; set; }
     }
 }

@@ -157,6 +157,61 @@ namespace PhotoSchool.Controllers
             return View(homework);
         }
 
+        // GET: Homework/Answer/5
+        public ActionResult Answer(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Homework homework = db.Homeworks.Find(id);
+            if (homework == null)
+            {
+                return HttpNotFound();
+            }
+            return View(homework);
+        }
+
+        // POST: Homework/Answer/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Answer([Bind(Include = "HomeworkId,Text,Date")] Answer answer, HttpPostedFileBase[] fileUpload)
+        {
+            if (ModelState.IsValid)
+            {
+                answer.Date = DateTime.Now;
+                db.Answers.Add(answer);
+
+                // Сохраняем файл в папку----------------------------------------------------
+                foreach (var file in fileUpload)
+                {
+                    if (file == null) continue;
+                    var path = AppDomain.CurrentDomain.BaseDirectory + "UploadedAnswersFiles/";
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    var filename = Path.GetFileName(file.FileName);
+                    if (filename != null) file.SaveAs(Path.Combine(path, filename));
+
+                    var newPhoto = new AnswersPhoto
+                    {
+                        Name = file.FileName,
+                        Path = "/UploadedAnswersFiles/" + filename,   // Нам не нужен путь на диске! Только относительный путь на сайте
+                        AnswerId = answer.Id
+                    };
+                    db.AnswersPhotoList.Add(newPhoto);
+                }
+                // --------------------------------------------------------------------------
+
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
         // GET: Homework/Delete/5
         public ActionResult Delete(int? id)
         {
