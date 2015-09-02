@@ -53,44 +53,39 @@
             </td>
         </tr>
 
-
-        @foreach (var answer in item.Answers)
+        if (item.Answers.Contains(???????????) != null) { ????????????????? нужно чтобы проверяло только ответ с id == item.id
+        foreach (var answer in item.Answers)
         {
-            @if (answer != null)
-            {
+            <tr>
+                <td>@answer.Text</td>
+                <td colspan="2">@answer.Date</td>
+            </tr>
 
-                <tr>
-                    <td>@Html.Display(answer.Text)</td>
-                    <td colspan="2">ДАТАНЕПОЙМИКАКВЫВОДИТЬ@*@Html.Display(answer.Date)*@</td>
-                </tr>
+            <tr>
+                <td colspan="3">
+                    @foreach (var photo in item.AnswersPhotos)
+                    {
+                        <div class="col">
+                            <div class="photo_preview">
 
-                <tr>
-                    <td colspan="3">
-                        @foreach (var photo in item.AnswersPhotos)
-                        {
-                            <div class="col">
-                                <div class="photo_preview">
+                                <a href="@photo.Path" target="_blank">
+                                    <img src="@Url.Content(photo.Path)" alt="Image">
+                                </a>
 
-                                    <a href="@photo.Path" target="_blank">
-                                        <img src="@Url.Content(photo.Path)" alt="Image">
-                                    </a>
-
-                                </div>
                             </div>
-                        }
-                    </td>
-                </tr>
-            }
-            else
-            {
-                <tr>
-                    <td colspan="3">
-                        @Html.ActionLink("Ответить", "Answer", new { id = item.Id })
-                    </td>
-                </tr>
-            }
+                        </div>
+                    }
+                </td>
+            </tr>
         }
-
-
+    }
+    else
+    {
+        <tr>
+            <td colspan="3">
+                @Html.ActionLink("Ответить", "Answer", new { id = item.Id })
+            </td>
+        </tr>
+    }
     }
 </table>
