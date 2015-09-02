@@ -13,6 +13,8 @@ namespace PhotoSchool.Models
         public int HomeworkId { get; set; }
         public string Text { get; set; }
 
+        public Homework Homework { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime Date { get; set; }

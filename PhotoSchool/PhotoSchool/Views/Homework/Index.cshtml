@@ -54,22 +54,35 @@
         </tr>
 
 
-        @{
-            if (если в таблице Answers есть answer с homeworkId == item.Id)
-                {
+        @foreach (var answer in item.Answers)
+        {
+            @if (answer != null)
+            {
+
                 <tr>
-                    <td>тут текст ответа</td>
-                    <td colspan="2">дата</td>
+                    <td>@Html.Display(answer.Text)</td>
+                    <td colspan="2">ДАТАНЕПОЙМИКАКВЫВОДИТЬ@*@Html.Display(answer.Date)*@</td>
                 </tr>
 
                 <tr>
-                    фотографии из answer.Photos
+                    <td colspan="3">
+                        @foreach (var photo in item.AnswersPhotos)
+                        {
+                            <div class="col">
+                                <div class="photo_preview">
+
+                                    <a href="@photo.Path" target="_blank">
+                                        <img src="@Url.Content(photo.Path)" alt="Image">
+                                    </a>
+
+                                </div>
+                            </div>
+                        }
+                    </td>
                 </tr>
             }
-
-                    else
-
-                    {
+            else
+            {
                 <tr>
                     <td colspan="3">
                         @Html.ActionLink("Ответить", "Answer", new { id = item.Id })
@@ -78,6 +91,6 @@
             }
         }
 
-            }
 
+    }
 </table>
