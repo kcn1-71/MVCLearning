@@ -26,7 +26,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Text)
-
                 <br />
 
                 @foreach (var photo in item.Photos)
@@ -53,7 +52,7 @@
             </td>
         </tr>
 
-        if (item.Answers.Contains(???????????) != null) { ????????????????? нужно чтобы проверяло только ответ с id == item.id
+       
         foreach (var answer in item.Answers)
         {
             <tr>
@@ -63,7 +62,7 @@
 
             <tr>
                 <td colspan="3">
-                    @foreach (var photo in item.AnswersPhotos)
+                    @foreach (var photo in answer.Photos)
                     {
                         <div class="col">
                             <div class="photo_preview">
@@ -78,14 +77,11 @@
                 </td>
             </tr>
         }
-    }
-    else
-    {
+
         <tr>
             <td colspan="3">
                 @Html.ActionLink("Ответить", "Answer", new { id = item.Id })
             </td>
         </tr>
-    }
     }
 </table>

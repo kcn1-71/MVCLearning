@@ -36,7 +36,7 @@ namespace PhotoSchool.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.Photos = homework.Photos;
+            //ViewBag.Photos = homework.Photos;   // Зачем?! Мы же и так передаем homework во View, где это поле есть
             return View(homework);
         }
 
@@ -101,7 +101,7 @@ namespace PhotoSchool.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Photos = homework.Photos;
+            //ViewBag.Photos = homework.Photos;
             return View(homework);
         }
 
@@ -224,7 +224,7 @@ namespace PhotoSchool.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Photos = homework.Photos;
+            //ViewBag.Photos = homework.Photos;
             return View(homework);
         }
 

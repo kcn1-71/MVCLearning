@@ -17,7 +17,7 @@ namespace PhotoSchool.Models
         public DateTime Date { get; set; }
 
         public virtual ICollection<Answer> Answers { get; set; }
-        public virtual ICollection<AnswersPhoto> AnswersPhotos { get; set; }
+        //public virtual ICollection<AnswersPhoto> AnswersPhotos { get; set; }
         public virtual ICollection<HomeworksPhoto> Photos { get; set; }
     }
 }
