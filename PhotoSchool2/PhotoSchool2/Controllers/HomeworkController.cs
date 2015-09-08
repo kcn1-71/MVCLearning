@@ -12,12 +12,17 @@ namespace PhotoSchool2.Controllers
 {
     public class HomeworkController : Controller
     {
-        private HomeworkContext db = new HomeworkContext();
+        IRepository<Homework> db;
+        public HomeworkController()
+        {
+            db = new HomeworkRepository();
+        }
+
 
         // GET: Homework
         public ActionResult Index()
         {
-            return View(db.Homeworks.ToList());
+            return View(db.GetList());
         }
 
         // GET: Homework/Details/5
@@ -27,7 +32,7 @@ namespace PhotoSchool2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Homework homework = db.Homeworks.Find(id);
+            Homework homework = db.Get(id);
             if (homework == null)
             {
                 return HttpNotFound();
@@ -46,12 +51,12 @@ namespace PhotoSchool2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,NumberOfPhotos,Text,Date")] Homework homework)
+        public ActionResult Create([Bind(Include = "Id,Title,NumberOfPhotos,Text")] Homework homework, HttpPostedFileBase[] fileUpload)
         {
             if (ModelState.IsValid)
             {
-                db.Homeworks.Add(homework);
-                db.SaveChanges();
+                db.Create(homework, fileUpload);
+                db.Save();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +70,7 @@ namespace PhotoSchool2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Homework homework = db.Homeworks.Find(id);
+            Homework homework = db.Get(id);
             if (homework == null)
             {
                 return HttpNotFound();
@@ -82,8 +87,8 @@ namespace PhotoSchool2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(homework).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Update(homework);
+                db.Save();
                 return RedirectToAction("Index");
             }
             return View(homework);
@@ -96,7 +101,7 @@ namespace PhotoSchool2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Homework homework = db.Homeworks.Find(id);
+            Homework homework = db.Get(id);
             if (homework == null)
             {
                 return HttpNotFound();
@@ -109,9 +114,9 @@ namespace PhotoSchool2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Homework homework = db.Homeworks.Find(id);
-            db.Homeworks.Remove(homework);
-            db.SaveChanges();
+            Homework homework = db.Get(id);
+            db.Delete(homework);
+            db.Save();
             return RedirectToAction("Index");
         }
 

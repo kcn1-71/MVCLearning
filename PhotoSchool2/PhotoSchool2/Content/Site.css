@@ -17,8 +17,26 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
 textarea {
     max-width: 280px;
 }
+
+.col {
+    margin : 5px;
+    display: inline-block
+}
+
+.photo_preview {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    overflow: hidden;
+    background : black;
+}
+
+.photo_preview img {
+        width: 100%;
+    }
