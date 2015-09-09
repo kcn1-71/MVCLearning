@@ -40,3 +40,11 @@ textarea {
 .photo_preview img {
         width: 100%;
     }
+
+.textarea {
+    width: 500px;
+    max-width:500px;
+    height: 200px;
+    max-height:200px;
+    text-align: left;
+}  

@@ -83,7 +83,7 @@ namespace PhotoSchool2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,NumberOfPhotos,Text,Date")] Homework homework)
+        public ActionResult Edit([Bind(Include = "Id,Title,NumberOfPhotos,Text")] Homework homework)
         {
             if (ModelState.IsValid)
             {
