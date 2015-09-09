@@ -46,7 +46,25 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    <div class="form-group">
+        <div class="col-md-10 col-md-offset-2">
+            @foreach (var photo in Model.Photos)
+            {
+                <div class="col">
+                    <div class="photo_preview">
+
+                        <a href="@photo.Path" target="_blank">
+                            <img src="@Url.Content(photo.Path)" alt="Image">
+                        </a>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
