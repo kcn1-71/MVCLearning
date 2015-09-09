@@ -1,0 +1,8 @@
+$ cat .gitignore
+PhotoSchool2/.vs/
+PhotoSchool2/packages/
+PhotoSchool2/PhotoSchool2/App_Data/
+PhotoSchool2/PhotoSchool2/bin
+PhotoSchool2/PhotoSchool2/obj
+PhotoSchool2/PhotoSchool2/UploadedFiles
+
