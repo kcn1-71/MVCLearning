@@ -17,6 +17,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Date)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -41,7 +42,36 @@
                 @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
             </div>
         </div>
-        
+
+        <div class="form-group">
+            <div class="col-md-10 col-md-offset-2">
+                @foreach (var photo in Model.Photos)
+                {
+                    <div class="col">
+                        <div class="photo_preview">
+
+                            <a href="@photo.Path" target="_blank">
+                                <img src="@Url.Content(photo.Path)" alt="Image">
+                            </a>
+
+                        </div>
+
+                        <input id="DeleteCheckBox[@photo.Id]" value="@photo.Id" name="DeleteCheckBox" type="checkbox">
+                        <input type="hidden" value="false" name="@photo.Id">
+                        <label for="DeleteCheckBox[@photo.Id]">Удалить</label>
+
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, "Attach photos", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("fileUpload", "fileUpload", htmlAttributes: new { type = "file", multiple = "multiple", @class = "input-file" })
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />

@@ -83,11 +83,11 @@ namespace PhotoSchool2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,NumberOfPhotos,Text")] Homework homework)
+        public ActionResult Edit([Bind(Include = "Id,Title,NumberOfPhotos,Text,Date")] Homework homework, string[] DeleteCheckBox, HttpPostedFileBase[] fileUpload)
         {
             if (ModelState.IsValid)
             {
-                db.Update(homework);
+                db.Update(homework, DeleteCheckBox, fileUpload);
                 db.Save();
                 return RedirectToAction("Index");
             }

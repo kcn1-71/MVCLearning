@@ -14,38 +14,38 @@ namespace PhotoSchool2.Models
         T Get(int? id); // получение одного объекта по id
         T Get(int id);
         void Create(T item, HttpPostedFileBase[] array); // создание объекта
-        void Update(T item); // обновление объекта
+        void Update(T item, string[] DeleteCheckBox, HttpPostedFileBase[] fileUpload); // обновление объекта
         void Delete(T item);
         void Save();  // сохранение изменений
     }
 
     public class HomeworkRepository : IRepository<Homework>
     {
-        private HomeworkContext db;
+        private HomeworkContext _db;
         public HomeworkRepository()
         {
-            this.db = new HomeworkContext();
+            this._db = new HomeworkContext();
         }
 
         public IEnumerable<Homework> GetList()
         {
-            return db.Homeworks;
+            return _db.Homeworks;
         }
 
         public Homework Get(int? id)
         {
-            return db.Homeworks.Find(id);
+            return _db.Homeworks.Find(id);
         }
 
         public Homework Get(int id)
         {
-            return db.Homeworks.Find(id);
+            return _db.Homeworks.Find(id);
         }
 
         public void Create(Homework homework, HttpPostedFileBase[] fileUpload)
         {
             homework.Date = DateTime.Now;
-            db.Homeworks.Add(homework);
+            _db.Homeworks.Add(homework);
 
             foreach (var file in fileUpload)
             {
@@ -66,13 +66,46 @@ namespace PhotoSchool2.Models
                     HomeworkId = homework.Id
                 };
 
-                db.HomeworkPhotoList.Add(newPhoto);
+                _db.HomeworkPhotoList.Add(newPhoto);
             }
         }
 
-        public void Update(Homework homework)
+        public void Update(Homework homework, string[] DeleteCheckBox, HttpPostedFileBase[] fileUpload)
         {
-            db.Entry(homework).State = EntityState.Modified;
+            if (DeleteCheckBox != null && DeleteCheckBox.Length > 0)
+            {
+                foreach (string DelPhoto in DeleteCheckBox)
+                {
+                    HomeworkPhoto photo = _db.HomeworkPhotoList.Find(Convert.ToInt32(DelPhoto));
+                    if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + photo.Path))
+                    {
+                        System.IO.File.Delete(AppDomain.CurrentDomain.BaseDirectory + photo.Path);
+                    }
+                    _db.HomeworkPhotoList.Remove(photo);
+                }
+            }
+
+            foreach (var file in fileUpload)
+            {
+                if (file == null) continue;
+                var path = AppDomain.CurrentDomain.BaseDirectory + "UploadedFiles/";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                var filename = Path.GetFileName(file.FileName);
+                if (filename != null) file.SaveAs(Path.Combine(path, filename));
+
+                var newPhoto = new HomeworkPhoto
+                {
+                    Name = file.FileName,
+                    Path = "/UploadedFiles/" + filename,   // Нам не нужен путь на диске! Только относительный путь на сайте
+                    HomeworkId = homework.Id
+                };
+                _db.HomeworkPhotoList.Add(newPhoto);
+            }
+            _db.Entry(homework).State = EntityState.Modified;
         }
 
         public void Delete(Homework homework)
@@ -86,12 +119,12 @@ namespace PhotoSchool2.Models
             }
 
             if (homework != null)
-                db.Homeworks.Remove(homework);
+                _db.Homeworks.Remove(homework);
         }      
 
         public void Save()
         {
-            db.SaveChanges();
+            _db.SaveChanges();
         }
 
         private bool disposed = false;
@@ -102,7 +135,7 @@ namespace PhotoSchool2.Models
             {
                 if (disposing)
                 {
-                    db.Dispose();
+                    _db.Dispose();
                 }
             }
             this.disposed = true;
@@ -111,7 +144,6 @@ namespace PhotoSchool2.Models
         public void Dispose()
         {
             Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }
