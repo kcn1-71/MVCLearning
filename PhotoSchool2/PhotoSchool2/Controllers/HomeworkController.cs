@@ -22,21 +22,9 @@ namespace PhotoSchool2.Controllers
         // GET: Homework
         public ActionResult Index()
         {
-            if (User.IsInRole("admin")) return Redirect("/Homework/IndexAdmin");
-            else if (User.IsInRole("user")) return Redirect("/Homework/IndexUser");
+            if (User.IsInRole("admin")) return View("IndexAdmin", db.GetList());
+            else if (User.IsInRole("user")) return View("IndexUser", db.GetList());
             else return View(db.GetList());
-        }
-
-        [Authorize(Roles = "admin")]
-        public ActionResult IndexAdmin()
-        {
-            return View(db.GetList());
-        }
-
-        [Authorize(Roles = "user")]
-        public ActionResult IndexUser()
-        {
-            return View(db.GetList());
         }
 
         // GET: Homework/Details/5
