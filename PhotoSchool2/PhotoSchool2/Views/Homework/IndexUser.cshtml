@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<PhotoSchool2.Models.Homework>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "IndexUser";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
+
 
 <table class="table">
     <tr>
@@ -42,7 +43,7 @@
             </td>
 
             <td>
-                
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
             </td>
         </tr>
 

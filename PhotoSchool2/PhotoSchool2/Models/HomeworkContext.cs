@@ -11,5 +11,9 @@ namespace PhotoSchool2.Models
         public DbSet<Homework> Homeworks { get; set; }
 
         public DbSet<HomeworkPhoto> HomeworkPhotoList { get; set; }
+
+        public DbSet<Answer> Answers { get; set; }
+
+        public DbSet<AnswerPhoto> AnswerPhotoList { get; set; }
     }
 }

@@ -175,9 +175,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\AnswerPhoto.cs" />
+    <Compile Include="Models\AnswerRepository.cs" />
+    <Compile Include="Models\AppDbInitializer.cs" />
     <Compile Include="Models\Homework.cs" />
     <Compile Include="Models\HomeworkContext.cs" />
     <Compile Include="Models\HomeworkPhoto.cs" />
+    <Compile Include="Models\HomeworkRepository.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Repository.cs" />
@@ -244,6 +249,8 @@
     <Content Include="Views\Homework\Details.cshtml" />
     <Content Include="Views\Homework\Edit.cshtml" />
     <Content Include="Views\Homework\Index.cshtml" />
+    <Content Include="Views\Homework\IndexUser.cshtml" />
+    <Content Include="Views\Homework\IndexAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
