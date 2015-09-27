@@ -24,7 +24,7 @@ namespace PhotoSchool2.Controllers
         {
             if (User.IsInRole("admin")) return View("IndexAdmin", db.GetList());
             else if (User.IsInRole("user")) return View("IndexUser", db.GetList());
-            else return View(db.GetList());
+            else return View("Index", db.GetList());
         }
 
         // GET: Homework/Details/5
