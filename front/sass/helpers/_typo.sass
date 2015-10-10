@@ -1,0 +1,72 @@
+@mixin typo-h
+	font-family: 'Comfortaa', cursive
+@mixin typo-t
+	font-family: 'Noto Sans', sans-serif
+
+html
+	+typo-t
+
+h1, h2, h3
+	+typo-h
+
+//--------------------------------
+//--------- ICON FONTS------------
+//--------------------------------
+
+@font-face 
+	font-family: 'fontello'
+	src: url('./fonts/fontello.eot?73380698')
+	src: url('./fonts/fontello.eot?73380698#iefix') format('embedded-opentype'),  url('./fonts/fontello.woff?73380698') format('woff'), url('./fonts/fontello.ttf?73380698') format('truetype'), url('./fonts/fontello.svg?73380698#fontello') format('svg')
+	font-weight: normal
+	font-style: normal
+
+[class^="icon-"]:before, [class*=" icon-"]:before 
+	font-family: "fontello"
+	font-style: normal
+	font-weight: normal
+	speak: none
+	display: inline-block
+	text-decoration: inherit
+	width: 1em
+	margin-right: .2em
+	text-align: center
+	/* opacity: .8 */
+	/* For safety - reset parent styles, that can break glyph codes*/
+	font-variant: normal
+	text-transform: none
+	/* you can be more comfortable with increased icons size */
+	/* font-size: 120% */
+	/* Font smoothing. That was taken from TWBS */
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+.icon-search:before  
+	content: '\e800'  /* '' */
+.icon-cam--one:before  
+	content: '\e801'  /* '' */
+.icon-cam--two:before  
+	content: '\e802'  /* '' */
+.icon-cam--tree:before  
+	content: '\e803'  /* '' */
+.icon-cam--four:before  
+	content: '\e804'  /* '' */
+.icon-cam--nine:before  
+	content: '\e805'  /* '' */
+.icon-cam--seven:before  
+	content: '\e806'  /* '' */
+.icon-cam--six:before  
+	content: '\e807'  /* '' */
+.icon-cam--five:before  
+	content: '\e808'  /* '' */
+.icon-cam--eight:before  
+	content: '\e809'  /* '' */
+.icon-avatar:before  
+	content: '\e80a'  /* '' */
+.icon-login:before  
+	content: '\e80b'  /* '' */
+.icon-vkontakte-rect:before  
+	content: '\e80c'  /* '' */
+.icon-logout:before  
+	content: '\e80d'  /* '' */
+.icon-close:before
+	content: '\e80f' /* '' */

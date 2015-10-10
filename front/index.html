@@ -1,0 +1,99 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Фотошкола</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-title" content="Фотошкола"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,300,700|Noto+Sans:400,400italic&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="./main.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="./js/forms.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="account">
+        <div class="login">
+          <button data-toggle="modal" data-target="#modal-login"><span class="icon-avatar"></span>Login<span class="icon-login"></span></button>
+        </div>
+      </div>
+      <div class="main-nav">
+        <div class="main-nav__logo-wrapper"><img class="logo"/></div>
+        <nav class="main-nav__nav">
+          <ul>
+            <li><a>Главная</a></li>
+            <li><a>O школе</a></li>
+            <li><a>Курсы</a></li>
+            <li><a>Галерея</a></li>
+            <li><a>Контакты</a></li>
+          </ul>
+        </nav>
+        <form class="main-nav__search-form"></form>
+      </div>
+    </header>
+    <main class="main">
+      <p class="icon-cam--five">Njdfwehfiwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+    </main>
+    <footer class="footer"></footer>
+    <div id="modal-login" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <ul class="nav nav-tabs modal-login__tabs">
+              <li data-toggle="tab" href="#login" class="active tab--login">Вход</li>
+              <li data-toggle="tab" href="#register" class="tab--register">Регистрация</li>
+            </ul>
+            <button type="button" data-dismiss="modal" class="icon-close modal-login__close"></button>
+          </div>
+          <div id="login" class="modal-login__content modal-login__login active">
+            <form action="" method="post" role="form" novalidate="novalidate" class="form-horizontal">
+              <input name="__RequestVerificationToken" type="hidden" value="a2jaX-ldr-TNgaDDF_HANEytpbnVKdfC701bgrHwyFK3oQbrs9wIQFY1kDh-u8dTWLkuOhEyl7w31jm7cVNSsCfan_yzaD00j7bnMLI9Ayw1"/>
+            </form>
+            <label for="Email" class="modal-login__label"> <span>Email:</span></label>
+            <div class="modal-login__input-group">
+              <input data-val="true" data-val-email="Недопустимый адрес электронной почты" data-val-required="Введите email" id="Email" name="Email" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Email" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Недопустимый адрес электронной почты</span></span>
+            </div>
+            <label for="Password" class="modal-login__label"> <span>Пароль:</span></label>
+            <div class="modal-login__input-group">
+              <input data-val="true" data-val-required="Введите пароль" id="Password" name="Password" type="password" class="modal-login__input valid"/><span data-valmsg-for="Password" data-valmsg-replace="true" class="field-validation-valid text-danger"></span>
+            </div>
+            <input type="submit" value="Войти" class="modal-login__submit-button"/><a href="#" class="modal-login__forgot-pass">Забыли пароль?</a>
+          </div>
+          <div id="register" class="modal-login__content modal-login__register">
+            <form action="/Account/Register" method="post" role="form" novalidate="novalidate" class="form-horizontal">
+              <input name="__RequestVerificationToken" type="hidden" value="DAtJcE00TSk_pN1u_VrvEQPzLVtK-AjXEshBZa0QY5FdSidhgyosc3-VWw8z86rGQacCMDD4hJp52R5612Q_u-5ir0dJuljdEwukTH0MQQc1"/>
+            </form>
+            <label for="Name" class="modal-login__label"> <span>Имя:</span></label>
+            <div class="modal-login__input-group">
+              <input data-val="true" data-val-required="Введите Ваше имя" id="Name" name="Name" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите Ваше имя</span></span>
+            </div>
+            <label for="Lastname" class="modal-login__label"> <span>Фамилия:</span></label>
+            <div class="modal-login__input-group">
+              <input data-val="true" data-val-required="Введите Ваше имя" id="Name" name="Name" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите Вашу фамилию</span></span>
+            </div>
+            <label for="Email" class="modal-login__label"> <span>Email:</span></label>
+            <div class="modal-login__input-group">
+              <input data-val="true" data-val-email="Недопустимый адрес электронной почты" data-val-required="Введите email" id="Email" name="Email" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Email" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Недопустимый адрес электронной почты</span></span>
+            </div>
+            <label for="Password" class="modal-login__label"> <span>Пароль:</span></label>
+            <div class="modal-login__input-group">
+              <input data-val="true" data-val-length="Пароль должен быть не менее 6 символов" data-val-length-max="100" data-val-length-min="6" data-val-required="Введите пароль" id="Password" name="Password" type="password" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите пароль</span></span>
+            </div>
+            <label for="Password" class="modal-login__label"> <span>Подтвердите пароль:</span></label>
+            <div class="modal-login__input-group">
+              <input data-val="true" data-val-equalto="Пароли не совпадают" data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword" type="password" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"></span>
+            </div>
+            <input type="submit" value="Зарегистрироваться" class="modal-login__submit-button"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+.modal.fade#modal-login
+	.modal-dialog
+		.modal-content
+			.modal-header
+				ul.nav.nav-tabs.modal-login__tabs
+					li.active(data-toggle="tab" href="#login").tab--login Вход
+					li(data-toggle="tab" href="#register").tab--register Регистрация
+				button(type="button" data-dismiss="modal").icon-close.modal-login__close
+			#login.modal-login__content.modal-login__login.active
+				form.form-horizontal(action="" method="post" role="form" novalidate="novalidate")
+					input(name="__RequestVerificationToken" type="hidden" value="a2jaX-ldr-TNgaDDF_HANEytpbnVKdfC701bgrHwyFK3oQbrs9wIQFY1kDh-u8dTWLkuOhEyl7w31jm7cVNSsCfan_yzaD00j7bnMLI9Ayw1")
+					
+				
+				
+				label.modal-login__label(for="Email") 
+					span Email:
+				div.modal-login__input-group
+					input.modal-login__input.input-validation-error(data-val="true" data-val-email="Недопустимый адрес электронной почты" data-val-required="Введите email" id="Email" name="Email" type="text" value="")
+					span.field-validation-valid.text-danger(data-valmsg-for="Email" data-valmsg-replace="true")
+						span Недопустимый адрес электронной почты
+					
+			
+			
+				label.modal-login__label(for="Password") 
+					span Пароль:
+				div.modal-login__input-group
+					input.modal-login__input.valid(data-val="true" data-val-required="Введите пароль" id="Password" name="Password" type="password")
+					span.field-validation-valid.text-danger(data-valmsg-for="Password" data-valmsg-replace="true")
+					
+	
+				input(type="submit" value="Войти").modal-login__submit-button
+					
+				a.modal-login__forgot-pass(href="#") Забыли пароль?
+
+			#register.modal-login__content.modal-login__register
+				form(action="/Account/Register" class="form-horizontal" method="post" role="form" novalidate="novalidate")
+					input(name="__RequestVerificationToken" type="hidden" value="DAtJcE00TSk_pN1u_VrvEQPzLVtK-AjXEshBZa0QY5FdSidhgyosc3-VWw8z86rGQacCMDD4hJp52R5612Q_u-5ir0dJuljdEwukTH0MQQc1")
+
+				
+				
+				label.modal-login__label(for="Name") 
+					span Имя:
+				div.modal-login__input-group
+					input.modal-login__input.input-validation-error(data-val="true" data-val-required="Введите Ваше имя" id="Name" name="Name" type="text" value="")
+					span.field-validation-valid.text-danger(data-valmsg-for="Name" data-valmsg-replace="true")
+						span Введите Ваше имя
+
+				label.modal-login__label(for="Lastname") 
+					span Фамилия:
+				div.modal-login__input-group
+					input.modal-login__input.input-validation-error(data-val="true" data-val-required="Введите Ваше имя" id="Name" name="Name" type="text" value="")
+					span.field-validation-valid.text-danger(data-valmsg-for="Name" data-valmsg-replace="true")
+						span Введите Вашу фамилию
+										
+				label.modal-login__label(for="Email") 
+					span Email:
+				div.modal-login__input-group
+					input.modal-login__input.input-validation-error(data-val="true" data-val-email="Недопустимый адрес электронной почты" data-val-required="Введите email" id="Email" name="Email" type="text" value="")
+					span.field-validation-valid.text-danger(data-valmsg-for="Email" data-valmsg-replace="true")
+						span Недопустимый адрес электронной почты
+
+				label.modal-login__label(for="Password") 
+					span Пароль:
+				div.modal-login__input-group
+					input.modal-login__input.input-validation-error(data-val="true" data-val-length="Пароль должен быть не менее 6 символов" data-val-length-max="100" data-val-length-min="6" data-val-required="Введите пароль" id="Password" name="Password" type="password")
+					span.field-validation-valid.text-danger(data-valmsg-for="Name" data-valmsg-replace="true")
+						span Введите пароль
+
+				label.modal-login__label(for="Password") 
+					span Подтвердите пароль:
+				div.modal-login__input-group
+					input.modal-login__input.input-validation-error(data-val="true" data-val-equalto="Пароли не совпадают" data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword" type="password")
+					span.field-validation-valid.text-danger(data-valmsg-for="Name" data-valmsg-replace="true")
+								
+
+				input(type="submit" value="Зарегистрироваться").modal-login__submit-button

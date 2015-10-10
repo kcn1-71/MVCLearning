@@ -1,0 +1,161 @@
+.modal-open .footer, .modal-open .header, .modal-open .main
+	filter: blur(2px) grayscale(100%)
+
+.footer, .header, .main
+	filter: none
+	transition: filter 0.3s ease-out
+
+.modal-dialog
+	left: 50%
+	position: absolute
+	top: 45%
+	transform: translate(-50%,-50%)
+	width: 500px
+	padding: 20px 0 0 0
+.modal-content
+	+inline-block-fix
+	border-radius: 3px
+	border: 1px solid $light-gray
+	height: auto
+	min-height: 300px
+
+.modal-header
+	box-sizing: border-box
+	height: $modal-login-tabs-height
+	
+.modal-login__tabs
+	+inline-block-fix
+	display: inline-block
+	height: $modal-login-tabs-height
+	width: 100%
+
+.tab--login, .tab--register
+	+typo-h
+	background: $white
+	border-bottom: 1px solid $light-gray
+	box-sizing: border-box
+	cursor: pointer
+	display: inline-block
+	font-size: 1rem;
+	height: $modal-login-tabs-height
+	line-height: $modal-login-tabs-height
+	padding: 0
+	text-align: center
+	width: 50%
+	&.active
+		background: transparent
+		border-bottom: 1px solid $white
+
+.tab--login
+	border-right: 1px solid $light-gray
+	border-bottom-right-radius: 5px
+	&.active
+		border-right:none
+
+.tab--register
+	border-bottom-left-radius: 5px
+	border-left: 1px solid $light-gray
+	position: relative
+	&.active
+		border-left: none
+		
+			
+.modal-login__close
+	background: transparent
+	border: none
+	font-size: 24px
+	outline: none
+	position: absolute
+	right: -10px
+	text-align: right
+	top: -30px
+	&:hover, &:active, &:focus
+		outline: none
+	&:before 
+		margin-right: 0
+
+.modal-login__content
+	+inline-block-fix
+	box-sizing: border-box
+	display: none
+	min-height: 100px
+	padding: 10%
+	width: 100%
+	&.active
+		display: block
+
+
+.modal-login__login
+
+.modal-login__register
+
+
+
+.modal-login__label
+	display: inline-block
+	height: $input-height
+	vertical-align: top
+	width: 30%
+	box-sizing: border-box
+	font-size: .95rem
+	position: relative
+	span 
+		line-height: 22px
+		+v-center
+.modal-login__input-group
+	display: inline-block
+	vertical-align: top
+	width: 70%
+	.text-danger
+		color: $red
+		display: block
+		font-size: .9rem
+		line-height: 20px
+		margin-bottom: 20px
+
+.modal-login__input
+	border-radius: 2px
+	border: 1px solid $mid-gray
+	height: $input-height
+	line-height: $input-height
+	width: 100%
+	box-sizing: border-box
+	padding: 0 5px
+	&.input-validation-error
+		border-color: $red
+	&.valid
+		border-color: $green
+	&:focus
+		outline: none
+		box-shadow: 0 0 2px 0px $mid-gray
+
+.modal-login__submit-button
+	+typo-h
+	background: transparent
+	border-radius: 2px
+	border: 2px solid $dark-gray
+	box-sizing: border-box
+	color: $dark-gray
+	display: block
+	font-size: 1rem
+	height: $input-height*1.2
+	line-height: $input-height*1.1
+	margin: 40px auto 0
+	padding: 0
+	text-transform: capitalize
+	width: 50%
+	&:hover
+		background: $blue
+		border-color: $blue
+		color: $white
+
+.modal-login__forgot-pass
+	display: inline-block
+	font-size: .9rem
+	text-decoration: none
+	color: $mid-gray
+	margin: 20px 0 0 50%
+	border-bottom: 1px solid $mid-gray
+	transform: translateX(-50%)
+	line-height: 20px
+	height: 20px
