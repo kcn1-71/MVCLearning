@@ -29,11 +29,12 @@
 	-webkit-overflow-scrolling: touch
 	outline: 0
 
-.modal.fade .modal-dialog 
+.modal.fade > .modal-dialog 
 	opacity: 0
-	transition: opacity 0.55s ease-out
-.modal.in .modal-dialog 
+	//transition: opacity 0.55s linear
+.modal.in > .modal-dialog 
 	opacity: 1
+
 
 .modal-open .modal 
 	overflow-x: hidden
@@ -50,6 +51,7 @@
 	-webkit-background-clip: padding-box
 					background-clip: padding-box
 	outline: 0
+	transition: none
 
 .modal-backdrop 
 	position: fixed
