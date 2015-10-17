@@ -1,0 +1,12 @@
+extends ./_base.jade
+block body
+	header.header
+		include ../blocks/_header.jade
+	main.main.account
+		block main
+	footer.footer
+		include ../blocks/_footer.jade
+
+	block modals
+		include ../blocks/_modal-login.jade
+		block additional-modals

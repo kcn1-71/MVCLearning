@@ -1,0 +1,88 @@
+$aside-width: 200px
+$account-padding-top: 40px
+.account
+	padding-top: $account-padding-top
+	max-width: 1200px
+	margin: 0 auto
+	padding-left: $aside-width+20
+	position: relative
+.account-aside
+	position: absolute
+	width: $aside-width
+	top: $account-padding-top
+	left: 20px
+
+.account-main
+	width: 100%
+	padding: 0 0 0 40px
+
+// Aside
+
+.account__photo
+	width: 100%
+	height: 0
+	padding-bottom: 100%
+	display: inline-block
+	vertical-align: top
+	+image-center
+		
+	&.noimage
+		+background-opacity($blue, 0.1)
+		img 
+			opacity: 0.2
+
+.account__photo__upload-button
+	position: absolute
+	z-index: 1
+	bottom: 0
+	left: 0
+	width: 100%
+	height: 30px
+	+background-opacity($blue, 0.6)
+	border: none
+	color: $white
+	text-transform: uppercase
+	font-size: 0.8rem
+	letter-spacing: 0.05rem
+	&:focus
+		outline: none
+
+.account__nav
+	padding: 20px 0 0 0
+	li
+		line-height: 1.5rem
+	a
+		line-height: 1.2rem
+		text-transform: uppercase
+		font-size: .9rem
+		color: $blue
+
+// Main
+
+.account-header 
+	font-size: 1.8rem
+	padding-bottom: 40px
+	h2
+		display: inline-block
+.account__edit-button
+	background: transparent
+	border: none
+	color: $blue
+	font-size: 1.5rem
+	line-height: 1.8rem
+.account-main__info
+	.account-main__info__tit
+		color: $blue
+		font-size: 1rem
+		line-height: 1.8rem
+		padding: 0 0.35rem 0 0 
+	
+
+
+@media screen and (min-width: 1200px)
+	.account-main
+		padding: 0 0 0 5%
+	.account__photo__upload-button
+		display: none
+	.account__photo:hover  .account__photo__upload-button 
+		display: block

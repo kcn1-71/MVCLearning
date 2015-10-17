@@ -1,0 +1,28 @@
+extends ./_account.jade
+block main
+	.account-aside
+		.account__photo.noimage
+			img(src='img/svg/logo.svg')
+			button().account__photo__upload-button Загрузить
+		nav.account__nav
+			ul
+				li: a(href='#') Курсы
+				li: a(href='#') Пользователи
+
+	.account-main
+		
+		.account-header 
+			h2 Личный кабинет
+			button().account__edit-button.icon-settings
+
+		block main-info
+			block name
+			.account-main__info
+				.account-main__info__fname
+					span.account-main__info__tit Имя:
+					span.account-main__info__val Тичер
+				.account-main__info__lname
+					span.account-main__info__tit Фамилия:
+					span.account-main__info__val Преподович
+			block content
+		
