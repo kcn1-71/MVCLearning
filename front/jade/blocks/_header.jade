@@ -1,18 +1,22 @@
-.account
-	.login
-		button(data-toggle="modal" data-target="#modal-login")
-			span.icon-avatar
-			| Login
-			span.icon-login
+
 .main-nav
-	.main-nav__logo-wrapper
-		img.logo()
+	a(href="#").main-nav__logo-wrapper
+		img.logo(src="img/svg/logo.svg")
 	nav.main-nav__nav
 		ul
-			li: a Главная
-			li: a O школе
-			li: a Курсы
-			li: a Галерея
-			li: a Контакты
+			li: a(href="#").current Главная
+			li: a(href="#") O школе
+			li: a(href="#") Курсы
+			li: a(href="#") Галерея
+			li: a(href="#") Контакты
 
-	form.main-nav__search-form
+	.main-nav__account
+		case layout
+			when 'account'
+				button(data-toggle="modal" data-target="#modal-logout").main-nav__account__login-button
+					| Выход
+					span.icon.icon-out
+			default
+				button(data-toggle="modal" data-target="#modal-login").main-nav__account__login-button
+					span.icon.icon-avatar
+					| Личный кабинет

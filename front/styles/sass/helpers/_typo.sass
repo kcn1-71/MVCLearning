@@ -1,13 +1,15 @@
 @mixin typo-h
-	font-family: 'Comfortaa', cursive
+	font-family: 'Roboto', sans-serif;
+	display: inline-block
+	transform: scale(1, 1.2)
+
 @mixin typo-t
-	font-family: 'Noto Sans', sans-serif
+	font-family: 'Roboto', sans-serif;
+
 
 html
 	+typo-t
 
-h1, h2, h3
-	+typo-h
 
 //--------------------------------
 //--------- ICON FONTS------------
@@ -58,7 +60,7 @@ $fonts-path: '../../fonts'
 .icon-cam--six:before  
 	content: '\e807'
 .icon-cam--five:before  
-	content: '\e808"  
+	content: '\e808'  
 .icon-cam--eight:before  
 	content: '\e809'  
 .icon-avatar:before  
@@ -75,3 +77,13 @@ $fonts-path: '../../fonts'
 	content: '\e80e'
 .icon-settings:before
 	content: '\e810'
+.icon-add:before
+	content: '\e811'
+.icon-del:before 
+	content: '\e812'
+.icon-checklist:before 
+	content: '\e814'
+.icon-checklist2:before 
+	content: '\e813'
+.icon-attach:before 
+	content: '\e815'

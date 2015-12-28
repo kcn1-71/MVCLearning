@@ -1,0 +1,12 @@
+// Account components (ac)
+=ac__border($sides...)
+	$border-contents: 1px solid darken($blue, 1%)
+	+border($border-contents, $sides...)
+	
+=ac__border--light($sides...)
+	$border-contents: 1px solid desaturate(lighten($blue, 60%), 50%)
+	+border($border-contents, $sides...)		
+
+=ac__border-rad($rads...)
+	$radius: 7px
+	+border-rad($radius, $rads...)

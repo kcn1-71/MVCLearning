@@ -1,0 +1,147 @@
+extends ./templates/_base.jade
+
+block layout-type
+	- var layout = 'account'
+	- var account = 'teacher'
+	- var accountHeader = 'Курсы'
+
+block main-info
+
+	.courses__list#coursesList.panel-group
+		a(href='').icon.icon-add.courses__list__add-course добавить курс
+		.course.panel.panel-default
+			.panel-heading
+				form().edit_course_name
+					.course__title--wrapper
+						button.course__title.panel-title(data-toggle="collapse" data-parent="#coursesList" href="#course1") Курс 1
+						input(value='Kyрс 1' data-parent='.edit_course_name').hidden
+						button(type='reset' data-parent='.edit_course_name').hidden
+					.course__link--wrapper
+						button().icon.icon-edit.course__edit-link редактировать
+						button(type='submit' data-parent='.edit_course_name').hidden
+					.course__link--wrapper
+						button(data-toggle="modal" data-target="#modal-delete" data-delete-target-type='курс' data-delete-target='#course1').icon.icon-del.course__del-link удалить
+			.course__body#course1.collapse.in.panel-collapse
+				.panel-body  
+					a(href='').icon.icon-add.course__body__add-item Добавить занятие
+					h3.course__body__legend Программа курса:
+					ol.course__body__list(reversed)
+						li.course__body__list__item
+							time(datetime="2015-12-03").course__body__list__item__date 03/12/2015
+							h4.course__body__list__item__title Тема занятия  Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, assumenda.
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить
+						li.course__body__list__item 
+							time(datetime="2015-12-02").course__body__list__item__date 02/12/2015
+							h4.course__body__list__item__title Тема занятия
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить
+						li.course__body__list__item
+							time(datetime="2015-12-01").course__body__list__item__date 01/12/2015
+							h4.course__body__list__item__title Тема занятия
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить					
+		.course.panel.panel-default
+			.panel-heading
+				.course__title--wrapper
+					button.course__title.panel-title(data-toggle="collapse" data-parent="#coursesList" href="#course2") Курс 2
+				.course__link--wrapper
+					a(href='#').icon.icon-edit.course__edit-link редактировать
+				.course__link--wrapper
+					a(href='#').icon.icon-del.course__del-link удалить
+			.course__body#course2.collapse.panel-collapse
+				.panel-body  
+					a(href='').icon.icon-add.course__body__add-item Добавить занятие
+					h3.course__body__legend Программа курса:
+					ol.course__body__list(reversed)
+						li.course__body__list__item
+							time(datetime="2015-12-03").course__body__list__item__date 03/12/2015
+							h4.course__body__list__item__title Тема занятия  Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, assumenda.
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить
+						li.course__body__list__item 
+							time(datetime="2015-12-02").course__body__list__item__date 02/12/2015
+							h4.course__body__list__item__title Тема занятия
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить
+						li.course__body__list__item
+							time(datetime="2015-12-01").course__body__list__item__date 01/12/2015
+							h4.course__body__list__item__title Тема занятия
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить
+
+		.course.panel.panel-default
+			.panel-heading
+				.course__title--wrapper
+					button.course__title.panel-title(data-toggle="collapse" data-parent="#coursesList" href="#course3") Курс 3
+				.course__link--wrapper
+					a(href='#').icon.icon-edit.course__edit-link редактировать
+				.course__link--wrapper
+					a(href='#').icon.icon-del.course__del-link удалить
+			.course__body#course3.collapse.panel-collapse
+
+				.panel-body  
+					a(href='').icon.icon-add.course__body__add-item Добавить занятие
+					h3.course__body__legend Программа курса:
+					ol.course__body__list(reversed)
+						li.course__body__list__item
+							time(datetime="2015-12-03").course__body__list__item__date 03/12/2015
+							h4.course__body__list__item__title Тема занятия  Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, assumenda.
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить
+						li.course__body__list__item 
+							time(datetime="2015-12-02").course__body__list__item__date 02/12/2015
+							h4.course__body__list__item__title Тема занятия
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить
+						li.course__body__list__item
+							time(datetime="2015-12-01").course__body__list__item__date 01/12/2015
+							h4.course__body__list__item__title Тема занятия
+							p.course__body__list__item__description Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.
+							.course__body__list__item__links
+								a(href='#').icon.icon-checklist.course__item__hometask-link домашка
+								a(href='#').icon.icon-edit.course__item__edit-link редактировать
+								a(href='#').icon.icon-del.course__item__del-link удалить
+
+block additional-modals
+	include blocks/_modal-logout.jade
+	include blocks/_modal-delete.jade
+
+block scripts
+	script.
+		function accordionToggleClass(delay){
+			var accordion = $('.panel-group');
+			accordion.find('.in.panel-collapse').siblings().addClass('in');
+				accordion.on('click', function(){
+					setTimeout( function(){
+						accordion.find('.panel-collapse').siblings().removeClass('in');
+						accordion.find('[aria-expanded="true"]').siblings().addClass('in');
+					}, delay);
+				});
+		}
+		accordionToggleClass(20);
+		deleteModal();

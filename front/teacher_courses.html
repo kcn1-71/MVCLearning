@@ -1,0 +1,258 @@
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Фотошкола</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-title" content="Фотошкола"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,400italic,500,300italic,300,100italic,100" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="./styles/css/main.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/forms.js"></script>
+  </head>
+  <body>
+    <div class="wrapper wrapper-account">
+      <header class="header">
+        <div class="main-nav"><a href="#" class="main-nav__logo-wrapper"><img src="img/svg/logo.svg" class="logo"/></a>
+          <nav class="main-nav__nav">
+            <ul>
+              <li><a href="#" class="current">Главная</a></li>
+              <li><a href="#">O школе</a></li>
+              <li><a href="#">Курсы</a></li>
+              <li><a href="#">Галерея</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </nav>
+          <div class="main-nav__account">
+            <button data-toggle="modal" data-target="#modal-logout" class="main-nav__account__login-button">Выход<span class="icon icon-out"></span></button>
+          </div>
+        </div>
+      </header>
+      <main class="main account">
+        <div class="account-aside">
+          <div class="account__photo noimage"><img src="img/svg/logo.svg"/>
+            <button class="account__photo__upload-button">Загрузить</button>
+          </div>
+          <nav class="account__nav">
+            <ul>
+              <li><a href="#">Курсы</a></li>
+              <li><a href="#">Пользователи</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="account-main">
+          <div class="account-header"> 
+            <h2>Курсы</h2>
+            <button alt="Настройки" title="Настройки" class="account__edit-button icon-settings"></button>
+          </div>
+          <div id="coursesList" class="courses__list panel-group"><a href="" class="icon icon-add courses__list__add-course">добавить курс</a>
+            <div class="course panel panel-default">
+              <div class="panel-heading">
+                <form class="edit_course_name">
+                  <div class="course__title--wrapper">
+                    <button data-toggle="collapse" data-parent="#coursesList" href="#course1" class="course__title panel-title">Курс 1</button>
+                    <input value="Kyрс 1" data-parent=".edit_course_name" class="hidden"/>
+                    <button type="reset" data-parent=".edit_course_name" class="hidden"></button>
+                  </div>
+                  <div class="course__link--wrapper">
+                    <button class="icon icon-edit course__edit-link">редактировать</button>
+                    <button type="submit" data-parent=".edit_course_name" class="hidden"></button>
+                  </div>
+                  <div class="course__link--wrapper">
+                    <button data-toggle="modal" data-target="#modal-delete" data-delete-target-type="курс" data-delete-target="#course1" class="icon icon-del course__del-link">удалить</button>
+                  </div>
+                </form>
+              </div>
+              <div id="course1" class="course__body collapse in panel-collapse">
+                <div class="panel-body"> <a href="" class="icon icon-add course__body__add-item">Добавить занятие</a>
+                  <h3 class="course__body__legend">Программа курса:</h3>
+                  <ol reversed="reversed" class="course__body__list">
+                    <li class="course__body__list__item">
+                      <time datetime="2015-12-03" class="course__body__list__item__date">03/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия  Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, assumenda.</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить</a></div>
+                    </li>
+                    <li class="course__body__list__item"> 
+                      <time datetime="2015-12-02" class="course__body__list__item__date">02/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить</a></div>
+                    </li>
+                    <li class="course__body__list__item">
+                      <time datetime="2015-12-01" class="course__body__list__item__date">01/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить					</a></div>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="course panel panel-default">
+              <div class="panel-heading">
+                <div class="course__title--wrapper">
+                  <button data-toggle="collapse" data-parent="#coursesList" href="#course2" class="course__title panel-title">Курс 2</button>
+                </div>
+                <div class="course__link--wrapper"><a href="#" class="icon icon-edit course__edit-link">редактировать</a></div>
+                <div class="course__link--wrapper"><a href="#" class="icon icon-del course__del-link">удалить</a></div>
+              </div>
+              <div id="course2" class="course__body collapse panel-collapse">
+                <div class="panel-body"> <a href="" class="icon icon-add course__body__add-item">Добавить занятие</a>
+                  <h3 class="course__body__legend">Программа курса:</h3>
+                  <ol reversed="reversed" class="course__body__list">
+                    <li class="course__body__list__item">
+                      <time datetime="2015-12-03" class="course__body__list__item__date">03/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия  Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, assumenda.</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить</a></div>
+                    </li>
+                    <li class="course__body__list__item"> 
+                      <time datetime="2015-12-02" class="course__body__list__item__date">02/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить</a></div>
+                    </li>
+                    <li class="course__body__list__item">
+                      <time datetime="2015-12-01" class="course__body__list__item__date">01/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить</a></div>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="course panel panel-default">
+              <div class="panel-heading">
+                <div class="course__title--wrapper">
+                  <button data-toggle="collapse" data-parent="#coursesList" href="#course3" class="course__title panel-title">Курс 3</button>
+                </div>
+                <div class="course__link--wrapper"><a href="#" class="icon icon-edit course__edit-link">редактировать</a></div>
+                <div class="course__link--wrapper"><a href="#" class="icon icon-del course__del-link">удалить</a></div>
+              </div>
+              <div id="course3" class="course__body collapse panel-collapse">
+                <div class="panel-body"> <a href="" class="icon icon-add course__body__add-item">Добавить занятие</a>
+                  <h3 class="course__body__legend">Программа курса:</h3>
+                  <ol reversed="reversed" class="course__body__list">
+                    <li class="course__body__list__item">
+                      <time datetime="2015-12-03" class="course__body__list__item__date">03/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия  Lorem ipsum dolor sit amet.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, assumenda.</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить</a></div>
+                    </li>
+                    <li class="course__body__list__item"> 
+                      <time datetime="2015-12-02" class="course__body__list__item__date">02/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить</a></div>
+                    </li>
+                    <li class="course__body__list__item">
+                      <time datetime="2015-12-01" class="course__body__list__item__date">01/12/2015</time>
+                      <h4 class="course__body__list__item__title">Тема занятия</h4>
+                      <p class="course__body__list__item__description">Описание занятия Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, maxime.</p>
+                      <div class="course__body__list__item__links"><a href="#" class="icon icon-checklist course__item__hometask-link">домашка</a><a href="#" class="icon icon-edit course__item__edit-link">редактировать</a><a href="#" class="icon icon-del course__item__del-link">удалить</a></div>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+    <div id="modal-login" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <ul class="nav nav-tabs modal-login__tabs">
+              <li data-toggle="tab" href="#login" class="active tab--login"><span class="text">Вход</span></li>
+              <li data-toggle="tab" href="#register" class="tab--register"><span class="text">Регистрация</span></li>
+            </ul>
+            <button type="button" data-dismiss="modal" class="icon-close modal-login__close"></button>
+          </div>
+          <div id="login" class="modal-login__content modal-login__login active">
+            <form action="" method="post" role="form" novalidate="novalidate" class="modal-login__form">
+              <input name="__RequestVerificationToken" type="hidden" value="a2jaX-ldr-TNgaDDF_HANEytpbnVKdfC701bgrHwyFK3oQbrs9wIQFY1kDh-u8dTWLkuOhEyl7w31jm7cVNSsCfan_yzaD00j7bnMLI9Ayw1"/>
+              <label for="Email" class="modal-login__label"> <span>Email</span></label>
+              <div class="modal-login__input-group">
+                <input data-val="true" data-val-email="Недопустимый адрес электронной почты" data-val-required="Введите email" id="Email" name="Email" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Email" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Недопустимый адрес электронной почты</span></span>
+              </div>
+              <label for="Password" class="modal-login__label"> <span>Пароль</span></label>
+              <div class="modal-login__input-group">
+                <input data-val="true" data-val-required="Введите пароль" id="Password" name="Password" type="password" class="modal-login__input valid"/><span data-valmsg-for="Password" data-valmsg-replace="true" class="field-validation-valid text-danger"></span>
+              </div>
+              <input type="submit" value="Войти" class="modal-login__submit-button"/>
+            </form><a href="#" class="modal-login__forgot-pass">Забыли пароль?</a>
+          </div>
+          <div id="register" class="modal-login__content modal-login__register">
+            <form action="/Account/Register" method="post" role="form" novalidate="novalidate" class="modal-login__form form-horizontal">
+              <input name="__RequestVerificationToken" type="hidden" value="DAtJcE00TSk_pN1u_VrvEQPzLVtK-AjXEshBZa0QY5FdSidhgyosc3-VWw8z86rGQacCMDD4hJp52R5612Q_u-5ir0dJuljdEwukTH0MQQc1"/>
+              <label for="Name" class="modal-login__label"> <span>Имя</span></label>
+              <div class="modal-login__input-group">
+                <input data-val="true" data-val-required="Введите Ваше имя" id="Name" name="Name" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите Ваше имя</span></span>
+              </div>
+              <label for="Lastname" class="modal-login__label"> <span>Фамилия</span></label>
+              <div class="modal-login__input-group">
+                <input data-val="true" data-val-required="Введите Ваше имя" id="Name" name="Name" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите Вашу фамилию</span></span>
+              </div>
+              <label for="Email" class="modal-login__label"> <span>Email</span></label>
+              <div class="modal-login__input-group">
+                <input data-val="true" data-val-email="Недопустимый адрес электронной почты" data-val-required="Введите email" id="Email" name="Email" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Email" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Недопустимый адрес электронной почты</span></span>
+              </div>
+              <label for="Password" class="modal-login__label"> <span>Пароль</span></label>
+              <div class="modal-login__input-group">
+                <input data-val="true" data-val-length="Пароль должен быть не менее 6 символов" data-val-length-max="100" data-val-length-min="6" data-val-required="Введите пароль" id="Password" name="Password" type="password" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите пароль</span></span>
+              </div>
+              <label for="Password" class="modal-login__label"> <span>Подтвердите пароль</span></label>
+              <div class="modal-login__input-group">
+                <input data-val="true" data-val-equalto="Пароли не совпадают" data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword" type="password" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"></span>
+              </div>
+              <input type="submit" value="Зарегистрироваться" class="modal-login__submit-button"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal-logout" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+    <div id="modal-logout" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+    <div id="modal-delete" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <h1>Вы уверены, что хотите удалить <span id="object-to-delete"></span>?</h1>
+        </div>
+      </div>
+    </div>
+    <script>
+      function accordionToggleClass(delay){
+      	var accordion = $('.panel-group');
+      	accordion.find('.in.panel-collapse').siblings().addClass('in');
+      		accordion.on('click', function(){
+      			setTimeout( function(){
+      				accordion.find('.panel-collapse').siblings().removeClass('in');
+      				accordion.find('[aria-expanded="true"]').siblings().addClass('in');
+      			}, delay);
+      		});
+      }
+      accordionToggleClass(20);
+      deleteModal();
+    </script>
+  </body>
+</html>

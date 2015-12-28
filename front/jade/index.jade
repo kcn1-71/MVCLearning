@@ -1,3 +1,40 @@
 extends ./templates/_base.jade
-block main	
-	p.icon-cam--five Njdfwehfiwweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+block head-js-additional
+	script(src='./js/slick.min.js')
+	script(src='./js/homepage.js')
+block layout-type
+	- var layout = 'front'
+block main
+	.homepage__slider__wrapper
+		.homepage__slider
+			.slide
+				.slide__img-wrapper
+					img(src='img/slider/walk2.jpg' alt="Vega Pavlodar").slide__img
+			.slide
+				.slide__img-wrapper
+					img(src='img/slider/lab.jpg' alt="Vega Pavlodar").slide__img
+			.slide
+				.slide__img-wrapper
+					img(src='img/slider/walk3.jpg' alt="Vega Pavlodar").slide__img
+
+		.homepage__slider__overlay
+			.slider__overlay__text
+				h1.slider__overlay__text__h
+					span.slider__overlay__text__h--big ВЕГА
+					br
+					span.slider__overlay__text__h--small школа фотографии
+	.homepage__courses
+	.homepage__social
+block scripts
+	script.
+		$(document).ready(function(){
+			$('.homepage__slider').slick({
+				autoplay: true,
+				autoplaySpeed: 5000,
+				arrows: false,
+			});	
+		});
+
+
+
+

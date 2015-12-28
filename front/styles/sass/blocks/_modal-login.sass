@@ -1,4 +1,4 @@
-.modal-open .footer, .modal-open .header, .modal-open .main
+.modal-open .wrapper
 	filter: blur(2px) grayscale(100%)
 
 .footer, .header, .main
@@ -12,6 +12,7 @@
 	transform: translate(-50%,-50%)
 	width: 500px
 	padding: 20px 0 0 0
+
 .modal-content
 	+inline-block-fix
 	border-radius: 3px
@@ -26,11 +27,12 @@
 .modal-login__tabs
 	+inline-block-fix
 	display: inline-block
+
 	height: $modal-login-tabs-height
 	width: 100%
 
 .tab--login, .tab--register
-	+typo-h
+	
 	background: $white
 	border-bottom: 1px solid $light-gray
 	box-sizing: border-box
@@ -42,6 +44,9 @@
 	padding: 0
 	text-align: center
 	width: 50%
+	position: relative
+	.text
+		+typo-h
 	&.active
 		background: transparent
 		border-bottom: 1px solid $white
@@ -49,13 +54,13 @@
 .tab--login
 	border-right: 1px solid $light-gray
 	border-bottom-right-radius: 5px
+	
 	&.active
 		border-right:none
 
 .tab--register
 	border-bottom-left-radius: 5px
 	border-left: 1px solid $light-gray
-	position: relative
 	&.active
 		border-left: none
 		
@@ -87,26 +92,34 @@
 .modal-login__form
 	+inline-block-fix
 .modal-login__login
-
+	padding-top: 71px
 .modal-login__register
 
 
 
 .modal-login__label
-	display: inline-block
+	display: block
 	height: $input-height
 	vertical-align: top
-	width: 30%
+	width: 80%
 	box-sizing: border-box
 	font-size: .95rem
 	position: relative
+	padding-left: 10px
+	margin-bottom: -($input-height)
+	z-index: 1
+	color: $mid-gray 
 	span 
 		line-height: 22px
 		+v-center
 .modal-login__input-group
-	display: inline-block
+	background: transparent
+	display: block
 	vertical-align: top
-	width: 70%
+	width: 100%
+	position: relative
+	z-index: 3
+
 	.text-danger
 		color: $red
 		display: block
@@ -122,11 +135,14 @@
 	width: 100%
 	box-sizing: border-box
 	padding: 0 5px
+	background: transparent
+	
 	&.input-validation-error
 		border-color: $red
 	&.valid
 		border-color: $green
-	&:focus
+	&:focus, &:active
+		background: $white
 		outline: none
 		box-shadow: 0 0 2px 0px $mid-gray
 
@@ -134,13 +150,13 @@
 	+typo-h
 	background: transparent
 	border-radius: 2px
-	border: 2px solid $dark-gray
+	border: 1px solid $dark-gray
 	box-sizing: border-box
 	color: $dark-gray
 	display: block
 	font-size: 1rem
-	height: $input-height*1.2
-	line-height: $input-height*1.1
+	height: $input-height
+	line-height: $input-height
 	margin: 40px auto 0
 	padding: 0
 	text-transform: capitalize

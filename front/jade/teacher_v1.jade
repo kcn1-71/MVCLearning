@@ -1,4 +1,9 @@
-extends ./templates/_account-teacher.jade
+extends ./templates/_base.jade
+
+block layout-type
+	- var layout = 'account'
+	- var account = 'teacher'
+	- var accountHeader = 'Личный кабинет'
 block content
 	table.new_users
 		thead

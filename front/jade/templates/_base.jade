@@ -8,7 +8,7 @@ html
 		meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
 		meta(name="apple-mobile-web-app-title" content="Фотошкола")
 		//--- Fonts ---//
-		link(href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700|Noto+Sans:400,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,400italic,500,300italic,300,100italic,100' rel='stylesheet' type='text/css')
 		//--- Styles ---//
 		link(rel='stylesheet', href='./styles/css/main.css')
 		
@@ -25,20 +25,95 @@ html
 				//--- Validation ---//
 				script(src='./js/jquery.validate.min.js')
 				script(src='./js/jquery.validate.unobtrusive.min.js')
+				script(src='./js/functions.js')
 			block head-js-custom
 				script(src='./js/forms.js')
 			block head-js-additional
 
 	body
 		block body
-			header.header
-				include ../blocks/_header.jade
-			main.main
-				block main
-			footer.footer
-				include ../blocks/_footer.jade
+			block layout-type
+				- var layout = ''
+				- var account = ''
+				- var accountHeader = ''
+			block visible
+				case layout
+					when 'front'
+						.wrapper.wrapper-front
+							header.header
+								include ../blocks/_header.jade
+							main.main
+								block main
+								
+							footer.footer
+								include ../blocks/_footer.jade
+					when 'account'
+						.wrapper.wrapper-account
+							header.header
+								include ../blocks/_header.jade
+							main.main.account
+								if(account == 'teacher')
+									.account-aside
+										.account__photo.noimage
+											img(src='img/svg/logo.svg')
+											button().account__photo__upload-button Загрузить
+										nav.account__nav
+											ul
+												li: a(href='#') Курсы
+												li: a(href='#') Пользователи
+
+									.account-main
+										.account-header 
+											h2 #{accountHeader}
+											button(alt="Настройки" title="Настройки").account__edit-button.icon-settings
+
+										block main-info
+											block name
+												.account-main__info
+													.account-main__info__fname
+														span.account-main__info__tit Имя:
+														span.account-main__info__val Тичер
+													.account-main__info__lname
+														span.account-main__info__tit Фамилия:
+														span.account-main__info__val Преподович
+											block content
+								else if(account == 'student')
+									.account-aside
+										.account__photo.noimage
+											img(src='img/svg/logo.svg')
+											button().account__photo__upload-button Загрузить
+										nav.account__nav
+											ul
+												li: a(href='#') Программа курса
+												li: a(href='#') Домашка
+
+									.account-main
+										.account-header 
+											h2 Личный кабинет
+											button().account__edit-button.icon-settings
+
+										block main-info
+											block name
+											.account-main__info
+												.account-main__info__fname
+													span.account-main__info__tit Имя:
+													span.account-main__info__val Студент
+												.account-main__info__lname
+													span.account-main__info__tit Фамилия:
+													span.account-main__info__val Уберителефонович
+											block content
+								else
+									p user type not set
+							footer.footer
+								include ../blocks/_footer.jade
+					default
+						p layout not set
+
+				
+					
 
 			block modals
 				include ../blocks/_modal-login.jade
+				include ../blocks/_modal-logout.jade
 				block additional-modals
 		block scripts

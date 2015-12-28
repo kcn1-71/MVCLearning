@@ -1,0 +1,189 @@
+/*TODO: refactor using mixin helpers*/
+.courses__list
+	text-align: right
+	margin-bottom: 160px
+	.course
+		text-align: left
+
+		.panel-heading
+			display: table
+			width: 100%
+			background: $white
+			box-sizing: border-box
+			+ac__border('all')
+			+ac__border-rad('rad-top')
+			margin-top: -5px
+			position: relative
+			z-index: 1
+			&:hover, &.in
+				background: $blue
+				transition: all .2s ease-in
+				*
+					color: $white
+		.course__title
+			line-height: 2rem
+			text-transform: uppercase
+			font-weight: bold
+			padding: 4px 20px 0
+			font-size: 1rem
+			width: 100%
+			cursor: pointer
+			text-align: left
+		.course__title--wrapper
+			width: 100%
+			display: table-cell
+		.course__link--wrapper
+			display: table-cell
+			white-space: nowrap
+			width: auto
+
+		.course__body
+			background: $white
+			border-left: 1px solid darken($blue, 1%)
+			border-right: 1px solid darken($blue, 1%)
+			box-sizing: border-box
+			padding: 25px 30px 40px
+			position: relative
+			text-align: right
+			&.collapse
+				display: none
+				overflow: hidden			
+				&.in
+					display: block
+			&.collapsing
+				position: relative
+				height: 0
+				overflow: hidden
+				transition-timing-function: ease-in-out
+				transition-duration: .55s
+				transition-property: height,visibility
+	&:last-child
+		.course__body.in
+			border-bottom: 1px solid darken($blue, 1%)
+
+.course__edit-link, .course__del-link
+	line-height: 2rem
+	padding: 0 10px
+	color: darken($blue, 1%)
+	font-size: 1rem
+	position: relative
+	top: -2px
+	display: inline-block
+	&:hover
+		animation: shake 100ms 2 linear;
+		@keyframes shake
+			0%
+				transform: translate(1px, 0)
+			50%
+				transform: translate(-1px, 0)
+			100%
+				transform: translate(0, 0)
+	&:before
+		font-size: .9em
+		position: relative
+		top: .05em
+
+.courses__list__add-course
+	display: inline-block
+	font-size: .9rem
+	height: 1.7rem
+	line-height: 1.7rem
+	margin: 0 0 45px 0
+	padding: 0 20px 0 15px
+	text-transform: uppercase
+	width: auto
+	+button-color-hover
+	&:hover
+		transform: scale(1.05)
+
+	&:before 
+		font-size: 1.05em
+		position: relative
+		top: .05em
+
+.course__body__add-item
+	@extend .courses__list__add-course
+	margin-bottom: 20px
+.course__body__legend
+	line-height: 2rem
+	text-transform: uppercase
+	background: $white
+	display: inline-block
+	position: absolute
+	left: 43px
+	color: desaturate(lighten($blue, 20%), 40%)
+	padding: 0 10px
+	font-size: .8rem
+	top: 20px*2+18
+
+.course__body__list
+	border: 3px solid desaturate(lighten($blue, 60%), 50%)
+	border-radius: 5px
+	padding: 20px
+	box-sizing: border-box
+	text-align: left
+	list-style-type:none
+
+.course__body__list__item
+	padding: 10px
+	position: relative
+	margin-bottom: 30px
+	&:before
+		content:''
+		border-top: 3px solid desaturate(lighten($blue, 60%), 50%)
+		width: 20px
+		display: block
+		margin: 0 0 0 -30px
+		position: relative
+		top: 17px
+	&:last-child
+		margin-bottom: 0
+
+$date-width: 100px
+
+.course__body__list__item__date
+	color: desaturate(lighten($blue, 8%), 25%)
+	left: 10px
+	line-height: 2rem
+	overflow: hidden
+	position: absolute
+	top: 13px
+	width: $date-width
+	font-size: 1.1rem
+.course__body__list__item__title
+	box-sizing: border-box
+	color: desaturate(lighten($blue, 8%), 25%)
+	height: 2rem
+	line-height: 2rem
+	overflow: hidden
+	padding: 0 0 0 $date-width+20
+	text-overflow: ellipsis
+	text-transform: uppercase
+	vertical-align: top
+	white-space: nowrap
+	width: 100%
+	font-size: 1.1rem
+	
+.course__body__list__item__description
+	color: desaturate(lighten($blue, 8%), 25%)
+	font-size: 1rem
+	margin: 10px 0 30px
+
+.course__body__list__item__links
+	text-align: right
+.course__item__del-link, .course__item__edit-link
+	@extend .course__edit-link
+	top: 0
+.course__item__del-link, .course__item__edit-link
+	color: 	desaturate(lighten($blue, 52%), 55%)
+	&:hover
+		color: desaturate(lighten($blue, 22%), 45%)
+.course__item__hometask-link
+	float: left
+	padding: 0 20px 0 15px
+	font-size: .8rem
+	background: $white
+	@extend .courses__list__add-course
+	margin-bottom: 0
+	&:before
+		top: 0

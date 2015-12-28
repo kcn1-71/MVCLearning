@@ -17,11 +17,9 @@
     <script src="./js/jquery.validate.unobtrusive.min.js"></script>
     <script src="./js/functions.js"></script>
     <script src="./js/forms.js"></script>
-    <script src="./js/slick.min.js"></script>
-    <script src="./js/homepage.js"></script>
   </head>
   <body>
-    <div class="wrapper wrapper-front">
+    <div class="wrapper wrapper-account">
       <header class="header">
         <div class="main-nav"><a href="#" class="main-nav__logo-wrapper"><img src="img/svg/logo.svg" class="logo"/></a>
           <nav class="main-nav__nav">
@@ -34,31 +32,28 @@
             </ul>
           </nav>
           <div class="main-nav__account">
-            <button data-toggle="modal" data-target="#modal-login" class="main-nav__account__login-button"><span class="icon icon-avatar"></span>Личный кабинет</button>
+            <button data-toggle="modal" data-target="#modal-logout" class="main-nav__account__login-button">Выход<span class="icon icon-out"></span></button>
           </div>
         </div>
       </header>
-      <main class="main">
-        <div class="homepage__slider__wrapper">
-          <div class="homepage__slider">
-            <div class="slide">
-              <div class="slide__img-wrapper"><img src="img/slider/walk2.jpg" alt="Vega Pavlodar" class="slide__img"/></div>
-            </div>
-            <div class="slide">
-              <div class="slide__img-wrapper"><img src="img/slider/lab.jpg" alt="Vega Pavlodar" class="slide__img"/></div>
-            </div>
-            <div class="slide">
-              <div class="slide__img-wrapper"><img src="img/slider/walk3.jpg" alt="Vega Pavlodar" class="slide__img"/></div>
-            </div>
+      <main class="main account">
+        <div class="account-aside">
+          <div class="account__photo noimage"><img src="img/svg/logo.svg"/>
+            <button class="account__photo__upload-button">Загрузить</button>
           </div>
-          <div class="homepage__slider__overlay">
-            <div class="slider__overlay__text">
-              <h1 class="slider__overlay__text__h"><span class="slider__overlay__text__h--big">ВЕГА</span><br/><span class="slider__overlay__text__h--small">школа фотографии</span></h1>
-            </div>
+          <nav class="account__nav">
+            <ul>
+              <li><a href="#">Курсы</a></li>
+              <li><a href="#">Пользователи</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="account-main">
+          <div class="account-header"> 
+            <h2>Курсы</h2>
+            <button alt="Настройки" title="Настройки" class="account__edit-button icon-settings"></button>
           </div>
         </div>
-        <div class="homepage__courses"></div>
-        <div class="homepage__social"></div>
       </main>
       <footer class="footer"></footer>
     </div>
@@ -120,14 +115,5 @@
         <div class="modal-content"></div>
       </div>
     </div>
-    <script>
-      $(document).ready(function(){
-      	$('.homepage__slider').slick({
-      		autoplay: true,
-      		autoplaySpeed: 5000,
-      		arrows: false,
-      	});	
-      });
-    </script>
   </body>
 </html>

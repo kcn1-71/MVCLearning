@@ -8,106 +8,105 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <meta name="apple-mobile-web-app-title" content="Фотошкола"/>
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,300,700|Noto+Sans:400,400italic&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,500italic,400italic,500,300italic,300,100italic,100" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="./styles/css/main.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/jquery.validate.min.js"></script>
     <script src="./js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="./js/functions.js"></script>
     <script src="./js/forms.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="account">
-        <div class="login">
-          <button data-toggle="modal" data-target="#modal-login"><span class="icon-avatar"></span>Login<span class="icon-login"></span></button>
+    <div class="wrapper wrapper-account">
+      <header class="header">
+        <div class="main-nav"><a href="#" class="main-nav__logo-wrapper"><img src="img/svg/logo.svg" class="logo"/></a>
+          <nav class="main-nav__nav">
+            <ul>
+              <li><a href="#" class="current">Главная</a></li>
+              <li><a href="#">O школе</a></li>
+              <li><a href="#">Курсы</a></li>
+              <li><a href="#">Галерея</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </nav>
+          <div class="main-nav__account">
+            <button data-toggle="modal" data-target="#modal-logout" class="main-nav__account__login-button">Выход<span class="icon icon-out"></span></button>
+          </div>
         </div>
-      </div>
-      <div class="main-nav">
-        <div class="main-nav__logo-wrapper"><img class="logo"/></div>
-        <nav class="main-nav__nav">
-          <ul>
-            <li><a>Главная</a></li>
-            <li><a>O школе</a></li>
-            <li><a>Курсы</a></li>
-            <li><a>Галерея</a></li>
-            <li><a>Контакты</a></li>
-          </ul>
-        </nav>
-        <form class="main-nav__search-form"></form>
-      </div>
-    </header>
-    <main class="main account">
-      <div class="account-aside">
-        <div class="account__photo noimage"><img src="img/svg/logo.svg"/>
-          <button class="account__photo__upload-button">Загрузить</button>
+      </header>
+      <main class="main account">
+        <div class="account-aside">
+          <div class="account__photo noimage"><img src="img/svg/logo.svg"/>
+            <button class="account__photo__upload-button">Загрузить</button>
+          </div>
+          <nav class="account__nav">
+            <ul>
+              <li><a href="#">Курсы</a></li>
+              <li><a href="#">Пользователи</a></li>
+            </ul>
+          </nav>
         </div>
-        <nav class="account__nav">
-          <ul>
-            <li><a href="#">Курсы</a></li>
-            <li><a href="#">Пользователи</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="account-main">
-        <div class="account-header"> 
-          <h2>Личный кабинет</h2>
-          <button class="account__edit-button icon-settings"></button>
+        <div class="account-main">
+          <div class="account-header"> 
+            <h2>Личный кабинет</h2>
+            <button alt="Настройки" title="Настройки" class="account__edit-button icon-settings"></button>
+          </div>
+          <div class="account-main__info">
+            <div class="account-main__info__fname"><span class="account-main__info__tit">Имя:</span><span class="account-main__info__val">Тичер</span></div>
+            <div class="account-main__info__lname"><span class="account-main__info__tit">Фамилия:</span><span class="account-main__info__val">Преподович</span></div>
+          </div>
+          <table class="new_users">
+            <thead>
+              <tr>
+                <td>Новые пользователи</td>
+                <td>Дата регистрации</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#"><span class="photo"><img src="http://cs.pikabu.ru/images/previews_comm/2013-12_4/13871462564350.jpg"/></span><span class="name">Уася Уася</span></a></td>
+                <td> 
+                  <time class="date">15.10.2015</time>
+                </td>
+              </tr>
+              <tr>
+                <td><a href="#"><span class="photo"><img src="http://cs.pikabu.ru/images/previews_comm/2013-12_4/13871462564350.jpg"/></span><span class="name">Уася Уася</span></a></td>
+                <td> 
+                  <time class="date">15.10.2015</time>
+                </td>
+              </tr>
+              <tr>
+                <td><a href="#"><span class="photo"><img src="http://cs.pikabu.ru/images/previews_comm/2013-12_4/13871462564350.jpg"/></span><span class="name">Уася Уася</span></a></td>
+                <td> 
+                  <time class="date">15.10.2015</time>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="account-main__info">
-          <div class="account-main__info__fname"><span class="account-main__info__tit">Имя:</span><span class="account-main__info__val">Тичер</span></div>
-          <div class="account-main__info__lname"><span class="account-main__info__tit">Фамилия:</span><span class="account-main__info__val">Преподович</span></div>
-        </div>
-        <table class="new_users">
-          <thead>
-            <tr>
-              <td>Новые пользователи</td>
-              <td>Дата регистрации</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="#"><span class="photo"><img src="http://cs.pikabu.ru/images/previews_comm/2013-12_4/13871462564350.jpg"/></span><span class="name">Уася Уася</span></a></td>
-              <td> 
-                <time class="date">15.10.2015</time>
-              </td>
-            </tr>
-            <tr>
-              <td><a href="#"><span class="photo"><img src="http://cs.pikabu.ru/images/previews_comm/2013-12_4/13871462564350.jpg"/></span><span class="name">Уася Уася</span></a></td>
-              <td> 
-                <time class="date">15.10.2015</time>
-              </td>
-            </tr>
-            <tr>
-              <td><a href="#"><span class="photo"><img src="http://cs.pikabu.ru/images/previews_comm/2013-12_4/13871462564350.jpg"/></span><span class="name">Уася Уася</span></a></td>
-              <td> 
-                <time class="date">15.10.2015</time>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </main>
-    <footer class="footer"></footer>
+      </main>
+      <footer class="footer"></footer>
+    </div>
     <div id="modal-login" class="modal fade">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <ul class="nav nav-tabs modal-login__tabs">
-              <li data-toggle="tab" href="#login" class="active tab--login">Вход</li>
-              <li data-toggle="tab" href="#register" class="tab--register">Регистрация</li>
+              <li data-toggle="tab" href="#login" class="active tab--login"><span class="text">Вход</span></li>
+              <li data-toggle="tab" href="#register" class="tab--register"><span class="text">Регистрация</span></li>
             </ul>
             <button type="button" data-dismiss="modal" class="icon-close modal-login__close"></button>
           </div>
           <div id="login" class="modal-login__content modal-login__login active">
             <form action="" method="post" role="form" novalidate="novalidate" class="modal-login__form">
               <input name="__RequestVerificationToken" type="hidden" value="a2jaX-ldr-TNgaDDF_HANEytpbnVKdfC701bgrHwyFK3oQbrs9wIQFY1kDh-u8dTWLkuOhEyl7w31jm7cVNSsCfan_yzaD00j7bnMLI9Ayw1"/>
-              <label for="Email" class="modal-login__label"> <span>Email:</span></label>
+              <label for="Email" class="modal-login__label"> <span>Email</span></label>
               <div class="modal-login__input-group">
                 <input data-val="true" data-val-email="Недопустимый адрес электронной почты" data-val-required="Введите email" id="Email" name="Email" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Email" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Недопустимый адрес электронной почты</span></span>
               </div>
-              <label for="Password" class="modal-login__label"> <span>Пароль:</span></label>
+              <label for="Password" class="modal-login__label"> <span>Пароль</span></label>
               <div class="modal-login__input-group">
                 <input data-val="true" data-val-required="Введите пароль" id="Password" name="Password" type="password" class="modal-login__input valid"/><span data-valmsg-for="Password" data-valmsg-replace="true" class="field-validation-valid text-danger"></span>
               </div>
@@ -117,23 +116,23 @@
           <div id="register" class="modal-login__content modal-login__register">
             <form action="/Account/Register" method="post" role="form" novalidate="novalidate" class="modal-login__form form-horizontal">
               <input name="__RequestVerificationToken" type="hidden" value="DAtJcE00TSk_pN1u_VrvEQPzLVtK-AjXEshBZa0QY5FdSidhgyosc3-VWw8z86rGQacCMDD4hJp52R5612Q_u-5ir0dJuljdEwukTH0MQQc1"/>
-              <label for="Name" class="modal-login__label"> <span>Имя:</span></label>
+              <label for="Name" class="modal-login__label"> <span>Имя</span></label>
               <div class="modal-login__input-group">
                 <input data-val="true" data-val-required="Введите Ваше имя" id="Name" name="Name" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите Ваше имя</span></span>
               </div>
-              <label for="Lastname" class="modal-login__label"> <span>Фамилия:</span></label>
+              <label for="Lastname" class="modal-login__label"> <span>Фамилия</span></label>
               <div class="modal-login__input-group">
                 <input data-val="true" data-val-required="Введите Ваше имя" id="Name" name="Name" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите Вашу фамилию</span></span>
               </div>
-              <label for="Email" class="modal-login__label"> <span>Email:</span></label>
+              <label for="Email" class="modal-login__label"> <span>Email</span></label>
               <div class="modal-login__input-group">
                 <input data-val="true" data-val-email="Недопустимый адрес электронной почты" data-val-required="Введите email" id="Email" name="Email" type="text" value="" class="modal-login__input input-validation-error"/><span data-valmsg-for="Email" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Недопустимый адрес электронной почты</span></span>
               </div>
-              <label for="Password" class="modal-login__label"> <span>Пароль:</span></label>
+              <label for="Password" class="modal-login__label"> <span>Пароль</span></label>
               <div class="modal-login__input-group">
                 <input data-val="true" data-val-length="Пароль должен быть не менее 6 символов" data-val-length-max="100" data-val-length-min="6" data-val-required="Введите пароль" id="Password" name="Password" type="password" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"><span>Введите пароль</span></span>
               </div>
-              <label for="Password" class="modal-login__label"> <span>Подтвердите пароль:</span></label>
+              <label for="Password" class="modal-login__label"> <span>Подтвердите пароль</span></label>
               <div class="modal-login__input-group">
                 <input data-val="true" data-val-equalto="Пароли не совпадают" data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword" type="password" class="modal-login__input input-validation-error"/><span data-valmsg-for="Name" data-valmsg-replace="true" class="field-validation-valid text-danger"></span>
               </div>
@@ -141,6 +140,11 @@
             </form>
           </div>
         </div>
+      </div>
+    </div>
+    <div id="modal-logout" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content"></div>
       </div>
     </div>
   </body>

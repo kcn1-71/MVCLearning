@@ -1,9 +1,11 @@
+@import ./helpers/reset
 @import ./helpers/vars
 @import ./helpers/mixins
 
 @import ./libs/reset
 @import ./libs/normalize
 @import ./libs/bootstrap
+@import ./libs/slickslider
 
 
 @import ./helpers/layout
@@ -12,8 +14,17 @@
 @import ./blocks/header
 @import ./blocks/footer
 @import ./blocks/modal-login
+@import ./blocks/modal-logout
+@import ./blocks/modal-delete
 
 
 // Account
-@import ./blocks/account-layout
-@import ./blocks/account-main
+@import ./pages/account/account-helpers
+@import ./pages/account/account-layout
+@import ./pages/account/teacher/accordeon
+@import ./pages/account/teacher/table
+
+
+//Pages
+
+@import ./pages/homepage

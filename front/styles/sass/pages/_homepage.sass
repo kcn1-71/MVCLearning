@@ -1,0 +1,47 @@
+$slider-height: 60%
+.homepage__slider__wrapper
+	position: relative
+.homepage__slider
+	width: 100%
+	.slide
+		height: auto
+		.slide__img-wrapper
+			width: 100%
+			height: 0
+			padding-bottom: $slider-height
+			position: relative
+			overflow: hidden
+			&:after
+				content: ''
+				display: block
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				opacity: 0.5
+				+overlay($black)
+
+		.slide__img
+			width: 100%
+			height: auto
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+
+.slider__overlay__text__h
+	text-align: center
+	color: $white
+	width: 100%
+	+v-center
+	font-weight: 200
+	margin: $header-height 0 0 0
+.slider__overlay__text__h--big, .slider__overlay__text__h--small
+	+typo-h
+	line-height: 1.1
+
+.slider__overlay__text__h--big
+	font-size: 6.1rem
+	
+.slider__overlay__text__h--small
+	font-size: 1.55rem

@@ -1,21 +1,22 @@
 $aside-width: 200px
-$account-padding-top: 40px
+$account-padding-top: $header-height + 40px
 .account
 	padding-top: $account-padding-top
-	max-width: 1200px
+	max-width: 1400px
 	margin: 0 auto
-	padding-left: $aside-width+20
+	padding-left: $aside-width+40
+	box-sizing: border-box
 	position: relative
 .account-aside
 	position: absolute
 	width: $aside-width
 	top: $account-padding-top
-	left: 20px
+	left: 40px
 
 .account-main
 	width: 100%
-	padding: 0 0 0 40px
-
+	padding: 0 40px
+	box-sizing: border-box
 // Aside
 
 .account__photo
@@ -44,6 +45,7 @@ $account-padding-top: 40px
 	text-transform: uppercase
 	font-size: 0.8rem
 	letter-spacing: 0.05rem
+	cursor: pointer
 	&:focus
 		outline: none
 
@@ -60,17 +62,18 @@ $account-padding-top: 40px
 // Main
 
 .account-header 
-	font-size: 1.8rem
-	padding-bottom: 40px
+	font-size: 1.5rem
+	
 	h2
 		display: inline-block
 .account__edit-button
 	background: transparent
 	border: none
 	color: $blue
-	font-size: 1.5rem
-	line-height: 1.8rem
+	font-size: 1.3rem
+	line-height: 1.5rem
 .account-main__info
+	margin-top: 40px
 	.account-main__info__tit
 		color: $blue
 		font-size: 1rem
@@ -79,9 +82,9 @@ $account-padding-top: 40px
 	
 
 
-@media screen and (min-width: 1200px)
++bp(('w-min': $tablet))
 	.account-main
-		padding: 0 0 0 5%
+		padding: 0 10%
 	.account__photo__upload-button
 		display: none
 	.account__photo:hover  .account__photo__upload-button 

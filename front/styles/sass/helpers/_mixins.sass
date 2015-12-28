@@ -1,21 +1,18 @@
-@mixin inline-block-fix
+=inline-block-fix
 	letter-spacing: -0.35rem
 	> *
 		letter-spacing: normal
 
-@mixin v-center
+=v-center
 	position: absolute
 	top: 50%
 	transform: translateY(-50%)
 
-@mixin background-opacity($color, $opacity)
-    background: $color
-    background: rgba($color, $opacity)
+=background-opacity($color, $opacity)
+	background: $color
+	background: rgba($color, $opacity)
 
-
-
-
-@mixin image-center
+=image-center
 	position: relative
 	overflow: hidden
 	img
@@ -23,3 +20,105 @@
 		width: 100%
 		top: 50%
 		transform: translateY(-50%)
+
+=overlay($color)
+	background-color: $color
+	background-image: url(http://www.transparenttextures.com/patterns/cross-stripes.png)
+
+
+=box-shadow($left, $top, $blur, $width, $color, $inset:"")
+	box-shadow: $left $top $blur $width $color #{$inset}
+
+=clearfix()
+	&:after
+		content:''
+		display: table
+		clear: both
+//------------------------------------------
+=bp($int, $args...)
+	$condMap: ('screen': 'only screen', 'print': 'only print', 'orient-p': '(orientation: portrait)', 'orient-l': '(orientation: landscape)')
+	$query: ""
+	$retina: false
+	$intervals: ""
+	@if $int != ""
+		@each $key, $point in $int
+			$splitter: ""
+			@if ($intervals != "") 
+				$splitter: " and "
+			@if $key == 'w-min'
+				$intervals: $intervals + $splitter + '(min-width: #{$point})'
+			@if $key == 'w-max'
+				$intervals: $intervals + $splitter + '(max-width: #{$point - 1})'
+			@if $key == 'h-min'
+				$intervals: $intervals + $splitter + '(min-height: #{$point})'
+			@if $key == 'h-max'
+				$intervals: $intervals + $splitter + '(max-height: #{$point - 1})'
+	
+	@each $arg in $args
+		$splitter: ""
+		@if ($query != "") 
+			$splitter: " and "
+		@if map-has-key($condMap, $arg)
+			$query: $query + $splitter + map-get($condMap, $arg)
+		@if $arg == 'retina'
+			$retina: true
+	
+	@if $intervals != false
+		$splitter: ""
+		@if ($query != "") 
+			$splitter: " and "
+		$query: $query + $splitter + $intervals
+	@if $retina == true
+		$query: $query + " and (-webkit-min-device-pixel-ratio: 1.5), " + $query + " and (-o-min-device-pixel-ratio: 3/2)," + $query + " and (min-device-pixel-ratio: 1.5)," + $query + " and (min-resolution: 120dpi)"
+	@media #{$query}
+		@content
+//--------------------------------------------
+
+=button-color-hover()
+	background: $white
+	border-radius: 3px
+	border: 1px solid darken($blue, 2%)
+	color: darken($blue, 15%)
+	&:hover
+		color: $white
+		background: $blue
+		border-color: $blue
+		transition: all .2s ease-in
+
+
+
+=border($style, $sides...)
+	@each $side in $sides
+		@if $side == 'all'
+			border: $style
+		@if $side == 'none'
+			border: none
+		@if $side != 'all' and $side != 'none'
+			border-#{$side}: $style
+
+=border-rad($radius, $rads...)
+	@each $rad in $rads
+		@if $rad == 'rad-top-left'
+			border-top-left-radius: $radius
+		@if $rad == 'rad-top-right'
+			border-top-right-radius: $radius
+		@if $rad == 'rad-bot-left'
+			border-bottom-left-radius: $radius
+		@if $rad == 'rad-bot-right'
+			border-bottom-right-radius: $radius
+		@if $rad == 'rad-top'
+			border-top-left-radius: $radius
+			border-top-right-radius: $radius
+		@if $rad == 'rad-bottom'
+			border-bottom-left-radius: $radius
+			border-bottom-right-radius: $radius
+		@if $rad == 'rad-left'
+			border-top-left-radius: $radius
+			border-bottom-left-radius: $radius
+		@if $rad == 'rad-right'
+			border-top-right-radius: $radius
+			border-bottom-right-radius: $radius
+		@if $rad == 'rad-all'
+			border-radius: $radius
+		@if $rad == 'rad-none'
+			border-radius: none
